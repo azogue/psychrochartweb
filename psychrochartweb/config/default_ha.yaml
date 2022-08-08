@@ -1,0 +1,36 @@
+homeassistant:
+  token: "***YOUR_HA_LONG_LIVE_TOKEN_TOKEN_HERE****"
+  host: "http://192.168.1.2:8123"
+  scan_interval: 30
+  # altitude: 100
+  pressure_sensor: sensor.pressure
+  delta_arrows: 3600
+
+interior:
+- name: RoomName
+  temperature: sensor.temperature
+  humidity: sensor.humidity
+  style:
+    color: '#FD9D64'
+    alpha: 0.9
+    markersize: 8
+exterior:
+
+interior_style_line:
+  color: darkgreen
+  lw: 2
+  alpha: 0.5
+  ls: ":"
+interior_style_fill:
+  color: darkgreen
+  lw: 0
+  alpha: 0.3
+exterior_style_line:
+  color: darkblue
+  lw: 1
+  alpha: 0.5
+  ls: "--"
+exterior_style_fill:
+  color: darkblue
+  lw: 0
+  alpha: 0.3

@@ -1,0 +1,3 @@
+homeassistant:
+  token: "***YOUR_HA_LONG_LIVE_TOKEN_TOKEN_HERE****"
+  host: "http://192.168.1.2:8123"

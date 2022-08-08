@@ -1,0 +1,95 @@
+homeassistant:
+  token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0YWQwMjUxMTExNmU0ZWRkYTNiNWI0MWUwNjY1YmVhMCIsImlhdCI6MTU3MzY0ODEwNywiZXhwIjoxODg5MDA4MTA3fQ.2o7ROi7oc8BkzsoJbLKMBm69TdX_MyjbdHtCUSOwQ14"
+  host: "https://domus.damnserver.com"
+#  host: "http://192.168.1.10:8123"
+  altitude: 7
+  pressure_sensor: sensor.sensor_terraza_pressure
+  delta_arrows: 10800
+  scan_interval: 60
+
+interior:
+- name: Aseo
+  humidity: sensor.sensor_bathroom_ac_humidity
+  style:
+    color: '#FD9D64'
+    alpha: 0.9
+    markersize: 8
+  temperature: sensor.sensor_bathroom_ac_temperature
+- name: Cocina
+  humidity: sensor.sensor_kitchen_humidity
+  style:
+    alpha: 0.9
+    color: '#F15346'
+    markersize: 9
+  temperature: sensor.sensor_kitchen_temperature
+- name: Dormitorio
+  humidity: sensor.dormitorio_humidity_rpi2mpd
+  style:
+    alpha: 0.9
+    color: darkgreen
+    markersize: 10
+  temperature: sensor.dormitorio_temperature_rpi2mpd
+- name: Estudio
+  humidity: sensor.sensor_study_humidity
+  style:
+    alpha: 0.9
+    color: darkblue
+    markersize: 9
+  temperature: sensor.sensor_study_temperature
+- name: Office
+  humidity: sensor.sensor_office_humidity
+  style:
+    alpha: 0.9
+    color: '#8FBB46'
+    markersize: 12
+  temperature: sensor.sensor_office_temperature
+- name: Salón
+  humidity: sensor.sensor_livingroom_humidity
+  style:
+    alpha: 0.9
+    color: darkorange
+    markersize: 12
+  temperature: sensor.sensor_livingroom_temperature
+
+exterior:
+- name: Galería
+  humidity: sensor.sensor_galeria_humidity
+  style:
+    alpha: 0.7
+    color: '#A250FB'
+    markersize: 9
+  temperature: sensor.sensor_galeria_temperature
+- name: Terraza
+  humidity: sensor.sensor_terraza_humidity
+  style:
+    alpha: 0.7
+    color: '#5882FB'
+    markersize: 12
+  temperature: sensor.sensor_terraza_temperature
+- name: Previsto
+  temperature: sensor.dark_sky_temperature
+  humidity: sensor.dark_sky_humidity
+  style:
+    alpha: 0.6
+    color: '#7996BB'
+    markersize: 7
+
+
+interior_style_line:
+  color: darkgreen
+  lw: 2
+  alpha: 0.5
+  ls: ":"
+interior_style_fill:
+  color: darkgreen
+  lw: 0
+  alpha: 0.3
+exterior_style_line:
+  color: darkblue
+  lw: 1
+  alpha: 0.5
+  ls: "--"
+exterior_style_fill:
+  color: darkblue
+  lw: 0
+  alpha: 0.3

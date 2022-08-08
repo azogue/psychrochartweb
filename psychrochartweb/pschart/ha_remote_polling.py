@@ -15,8 +15,8 @@ from psychrochart.chartdata import (
     gen_points_in_constant_relative_humidity as w_from_dbt_rh,
 )
 
-from .chart_config import ChartCustomConfig
-from ..config import AppConfig
+from psychrochartweb.config import AppConfig
+from psychrochartweb.pschart.chart_config import ChartCustomConfig
 
 _HA_TIMEOUT = 5
 KEY_HA_CONFIG = "_ha_config_"
@@ -107,20 +107,23 @@ def _build_chart_points_and_zones(
     points_data = {}
     num_interior = len(config.interior)
     points_int, points_ext = [], []
-    for i, p in enumerate(chain(config.interior, config.exterior)):
-        if p.temperature in sensor_states and p.humidity in sensor_states:
-            temp = _extract_state(sensor_states, p.temperature)
-            humid = _extract_state(sensor_states, p.humidity)
+    for i, point in enumerate(chain(config.interior, config.exterior)):
+        if (
+            point.temperature in sensor_states
+            and point.humidity in sensor_states
+        ):
+            temp = _extract_state(sensor_states, point.temperature)
+            humid = _extract_state(sensor_states, point.humidity)
             if temp is not None and humid is not None:
-                points_data[p.name] = {
+                points_data[point.name] = {
                     "xy": (temp, humid),
-                    "label": p.name,
-                    "style": p.style,
+                    "label": point.name,
+                    "style": point.style,
                 }
                 if i < num_interior:
-                    points_int.append(p.name)
+                    points_int.append(point.name)
                 else:
-                    points_ext.append(p.name)
+                    points_ext.append(point.name)
 
     # convex hulls
     zones_data = list(
@@ -143,15 +146,15 @@ def _build_chart_points_and_zones(
             # from mb to Pa
             pressure = measured_pressure * 100.0
 
-    return points_data, zones_data, pressure
+    return points_data, zones_data, pressure  # type: ignore
 
 
 async def get_ha_points_and_zones(ha_config: ChartCustomConfig):
-    def _get_entity_id(s):
-        return s["entity_id"]
+    def _get_entity_id(sensor):
+        return sensor["entity_id"]
 
-    def _is_sensor_domain(s):
-        return _get_entity_id(s).split(".")[0] == "sensor"
+    def _is_sensor_domain(sensor):
+        return _get_entity_id(sensor).split(".")[0] == "sensor"
 
     # Poll HA states
     ha_data = await _get_states(ha_config)

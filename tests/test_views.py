@@ -4,7 +4,7 @@ import pytest
 from aiohttp.client_reqrep import ClientResponse
 
 from psychrochartweb.routes import ENDPOINT_CHART_SVG
-from .conftest import TEST_PATH
+from tests.conftest import TEST_PATH
 
 
 async def _get_chart(client, svg_name: str):

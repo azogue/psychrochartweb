@@ -11,4 +11,4 @@ class ChartView(web.View):
         """Simple GET to access the SVG chart data."""
         chart_svg_b = self.request.app[SVG_BYTES]
 
-        return web.Response(body=chart_svg_b, content_type="image/svg+xml",)
+        return web.Response(body=chart_svg_b, content_type="image/svg+xml")

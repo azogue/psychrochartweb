@@ -3,16 +3,17 @@ import logging
 from time import monotonic
 
 import pytest
+
 from psychrochartweb.config import get_config
 from psychrochartweb.routes import ENDPOINT_CHART_SVG
 
 
 @pytest.mark.asyncio
 async def _get_svg_response(client):
-    r = await client.get(ENDPOINT_CHART_SVG)
-    assert r.status == 200
-    assert r.content_type == "image/svg+xml"
-    svg_data = await r.read()
+    response = await client.get(ENDPOINT_CHART_SVG)
+    assert response.status == 200
+    assert response.content_type == "image/svg+xml"
+    svg_data = await response.read()
     return svg_data
 
 

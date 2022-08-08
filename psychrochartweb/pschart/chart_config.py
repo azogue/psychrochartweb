@@ -8,7 +8,6 @@ import attr
 import cattr
 from ruamel.yaml import YAML
 
-
 EXT_ZONE_LINE = {"color": "darkblue", "lw": 1, "alpha": 0.5, "ls": "--"}
 EXT_ZONE_FILL = {"color": "darkblue", "lw": 0, "alpha": 0.3}
 INT_ZONE_LINE = {"color": "darkgreen", "lw": 2, "alpha": 0.5, "ls": ":"}
@@ -25,7 +24,7 @@ class SensorPoint:
     name: str = attr.ib()
     temperature: str = attr.ib()
     humidity: str = attr.ib()
-    style: Optional[Dict[str, Any]] = attr.ib(factory=dict)
+    style: Dict[str, Any] = attr.ib(factory=dict)
 
 
 @attr.s
@@ -55,8 +54,8 @@ class ChartCustomConfig:
     """
 
     homeassistant: HAConfig = attr.ib()
-    interior: Optional[List[SensorPoint]] = attr.ib(factory=list)
-    exterior: Optional[List[SensorPoint]] = attr.ib(factory=list)
+    interior: List[SensorPoint] = attr.ib(factory=list)
+    exterior: List[SensorPoint] = attr.ib(factory=list)
     interior_style_line: Dict[str, Any] = attr.ib(factory=EXT_ZONE_LINE.copy)
     interior_style_fill: Dict[str, Any] = attr.ib(factory=EXT_ZONE_FILL.copy)
     exterior_style_line: Dict[str, Any] = attr.ib(factory=INT_ZONE_LINE.copy)
@@ -65,7 +64,7 @@ class ChartCustomConfig:
     @classmethod
     def from_yaml_file(cls, path_config: Path):
         """Read configuration from a yaml file."""
-        raw_data: dict = YAML(typ='unsafe', pure=True).load(
+        raw_data: dict = YAML(typ="unsafe", pure=True).load(
             path_config.read_text(encoding="utf-8")
         )
         try:

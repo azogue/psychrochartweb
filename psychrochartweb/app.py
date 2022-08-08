@@ -6,19 +6,12 @@ from time import monotonic
 
 from aiohttp import web
 from aiojobs import Scheduler
-from aiojobs.aiohttp import (
-    get_scheduler_from_app,
-    setup as setup_periodic_jobs,
-)
+from aiojobs.aiohttp import get_scheduler_from_app
+from aiojobs.aiohttp import setup as setup_periodic_jobs
 
 from .config import AppConfig, CONFIG_KEY, NAME_KEY
 from .logger import get_app_logger, set_app_logger
-from .pschart import (
-    get_ha_config,
-    make_chart,
-    set_ha_config,
-    set_ha_history,
-)
+from .pschart import get_ha_config, make_chart, set_ha_config, set_ha_history
 from .routes import routes
 
 
@@ -55,7 +48,8 @@ async def _app_cleanup(app: web.Application):
 
 
 def create_app(
-    name: str = "pschart", config: AppConfig = None,
+    name: str = "pschart",
+    config: AppConfig = None,
 ) -> web.Application:
     """Psychrochart web application creation."""
     config = config if config is not None else AppConfig()

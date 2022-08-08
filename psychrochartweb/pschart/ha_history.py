@@ -13,9 +13,7 @@ from .chart_config import ChartCustomConfig
 KEY_HISTORY = "_ha_history"
 
 
-def set_ha_history(
-    app: web.Application, ha_config: ChartCustomConfig,
-):
+def set_ha_history(app: web.Application, ha_config: ChartCustomConfig):
     num_samples = (
         ha_config.homeassistant.delta_arrows
         // ha_config.homeassistant.scan_interval
@@ -41,7 +39,7 @@ def _arrow_style(style):
 
 
 async def update_history(
-    app: web.Application, points: Dict[str, Any],
+    app: web.Application, points: Dict[str, Any]
 ) -> Tuple[Dict[str, Any], float]:
     """Accumulate timestamped sets of points to build time evolution arrows."""
     now = monotonic()

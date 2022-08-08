@@ -4,16 +4,15 @@ from time import monotonic
 
 from aiohttp import web
 
-from .chart_config import ChartCustomConfig
-from .ha_history import set_ha_history, update_history
-from .ha_remote_polling import (
+from psychrochartweb.config import SVG_BYTES
+from psychrochartweb.pschart.chart_config import ChartCustomConfig
+from psychrochartweb.pschart.ha_history import set_ha_history, update_history
+from psychrochartweb.pschart.ha_remote_polling import (
     get_data_for_new_chart,
     get_ha_config,
     set_ha_config,
 )
-from .make_chart import plot_chart
-from ..config import SVG_BYTES
-
+from psychrochartweb.pschart.make_chart import plot_chart
 
 __all__ = (
     "ChartCustomConfig",

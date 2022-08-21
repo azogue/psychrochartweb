@@ -5,7 +5,11 @@ services:
       context: .
       cache_from:
         - &img_tag psychrochartweb/addon:latest
+    tty: true
     environment:
+      DEBUG_COLORS: "true"
+      TERM: xterm-256color
+      COLORTERM: truecolor
       SCAN_INTERVAL: ${SCAN_INTERVAL:-45}
       LOGGING_LEVEL: ${LOGGING_LEVEL:-WARNING}
       PORT: 80

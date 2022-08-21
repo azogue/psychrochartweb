@@ -4,7 +4,7 @@ from aiohttp import web
 
 from .views import ChartView
 
-ENDPOINT_CHART_SVG = "/chart_svg"
+ENDPOINT_CHART_SVG = "/chart.svg"
 
 routes = [
     web.view(ENDPOINT_CHART_SVG, ChartView),

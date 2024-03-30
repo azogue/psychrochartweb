@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Optional
 
 import attr
 import cattr
-from ruamel.yaml import YAML
+from yaml import safe_load
 
 EXT_ZONE_LINE = {"color": "darkblue", "lw": 1, "alpha": 0.5, "ls": "--"}
 EXT_ZONE_FILL = {"color": "darkblue", "lw": 0, "alpha": 0.3}
@@ -64,7 +64,7 @@ class ChartCustomConfig:
     @classmethod
     def from_yaml_file(cls, path_config: Path):
         """Read configuration from a yaml file."""
-        raw_data: dict = YAML(typ="unsafe", pure=True).load(
+        raw_data: dict = safe_load(
             path_config.read_text(encoding="utf-8")
         )
         try:

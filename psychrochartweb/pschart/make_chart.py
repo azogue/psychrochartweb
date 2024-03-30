@@ -9,7 +9,10 @@ async def _save_chart_to_svg(chart: PsychroChart) -> bytes:
     bytes_svg = BytesIO()
     chart.save(bytes_svg, format="svg")
     bytes_svg.seek(0)
-    return bytes_svg.read()
+    raw = bytes_svg.read().decode()
+    start = raw.find("<svg")
+    assert start >= 0
+    return raw[start:].encode()
 
 
 async def plot_chart(

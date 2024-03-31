@@ -1,30 +1,68 @@
 import pathlib
 
+import httpx
 import pytest
-from aiohttp.test_utils import TestClient
+import pytest_asyncio
+from pytest_httpx import HTTPXMock
 
-from psychrochartweb.app import AppConfig, create_app
+from psychrochartweb.app import create_app
+from psychrochartweb.config import Settings
+from psychrochartweb.handler import ChartHandler
 
-TEST_PATH = pathlib.Path(__file__).parent
-TEST_CONFIGS_PATH = TEST_PATH / "custom_configs"
+_TEST_PATH = pathlib.Path(__file__).parent
+TEST_CONFIGS_PATH = _TEST_PATH / "custom_configs"
+PATH_FIXTURES = _TEST_PATH / "fixtures"
+
+TEST_SETTINGS = Settings(ha_config_name="", custom_folder=TEST_CONFIGS_PATH)
+TEST_LOCAL_SETTINGS = Settings(
+    ha_config_name="test_ha_sensors.yaml", custom_folder=TEST_CONFIGS_PATH
+)
+
+
+async def make_device_testclient(hostname: str, settings: Settings):
+    """Async generator to produce TestClient with setup/shutdown stages."""
+    app = create_app(settings)
+
+    chart_handler = ChartHandler.create(settings)
+    await chart_handler.start()
+    app.state.chart_handler = chart_handler
+    async with httpx.AsyncClient(
+        transport=httpx.ASGITransport(app=app), base_url=f"http://{hostname}"
+    ) as tc:
+        yield tc
+    await chart_handler.stop()
+
+
+@pytest_asyncio.fixture
+async def client():
+    async for tc in make_device_testclient("test-server", TEST_SETTINGS):
+        yield tc
+
+
+@pytest_asyncio.fixture
+async def local_client(httpx_mock: HTTPXMock):
+    fake_ha_url = "http://192.168.1.111:8123/api/states"
+    num_reqs = {"count": 0}
+
+    async def _mock_get_ha_states(request: httpx.Request) -> httpx.Response:
+        assert request.method == "GET"
+        assert request.url == fake_ha_url
+        assert request.headers["Authorization"] == "Bearer super-secret"
+        num_reqs["count"] += 1
+        assert num_reqs["count"] < 4
+        mock_states = f"ha-sensor-data-{num_reqs['count']}.json"
+        return httpx.Response(
+            status_code=200,
+            content=(PATH_FIXTURES / mock_states).read_bytes(),
+        )
+
+    httpx_mock.add_callback(_mock_get_ha_states, url=fake_ha_url, method="GET")
+    async for tc in make_device_testclient(
+        "test-local-server", TEST_LOCAL_SETTINGS
+    ):
+        yield tc
 
 
 @pytest.fixture
-def client(aiohttp_client, event_loop) -> TestClient:
-    app_config = AppConfig()
-    assert app_config.SCAN_INTERVAL is None
-    app_config.SCAN_INTERVAL = 1
-    app_config.CUSTOM_FOLDER = TEST_CONFIGS_PATH
-    app_config.HA_CONFIG_NAME = ""
-    app = create_app(name="pschart_test", config=app_config)
-    return event_loop.run_until_complete(aiohttp_client(app))
-
-
-@pytest.fixture
-def local_client(aiohttp_client, event_loop) -> TestClient:
-    app_config = AppConfig()
-    assert app_config.SCAN_INTERVAL is None
-    app_config.SCAN_INTERVAL = 1
-    app_config.HA_CONFIG_NAME = "my_ha_sensors.yaml"
-    app = create_app(name="pschart_test_ha", config=app_config)
-    return event_loop.run_until_complete(aiohttp_client(app))
+def non_mocked_hosts() -> list:
+    return ["test-local-server", "test-server"]

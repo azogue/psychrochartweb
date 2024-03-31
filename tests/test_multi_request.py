@@ -2,37 +2,52 @@ import asyncio
 import logging
 from time import monotonic
 
-import pytest
+from httpx import AsyncClient
 
-from psychrochartweb.config import get_config
-from psychrochartweb.routes import ENDPOINT_CHART_SVG
+from psychrochartweb.pschart.chart_config import ChartCustomConfig
+from tests.conftest import PATH_FIXTURES
+
+_URL_GET_SETTINGS = "/settings"
+_URL_GET_CHART_CONFIG = "/chart-config"
+_URL_GET_CHART = "/chart.svg"
 
 
-@pytest.mark.asyncio
-async def _get_svg_response(client):
-    response = await client.get(ENDPOINT_CHART_SVG)
-    assert response.status == 200
-    assert response.content_type == "image/svg+xml"
-    svg_data = await response.read()
+async def _get_svg_response(client: AsyncClient):
+    response = await client.get(_URL_GET_CHART)
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "image/svg+xml"
+    svg_data = response.content.decode()
     return svg_data
 
 
-@pytest.mark.asyncio
-async def test_multi(client):
+async def test_multi(caplog, local_client: AsyncClient):
     num_r = 30
-    tasks = [_get_svg_response(client) for _ in range(num_r)]
+    tasks = [_get_svg_response(local_client) for _ in range(num_r)]
     tic = monotonic()
     svg_r = await asyncio.gather(*tasks)
     toc = monotonic()
     logging.info(f"Multi req[{num_r}] took {toc - tic:.3f} s")
-
     for resp in svg_r[1:]:
         assert resp == svg_r[0]
 
-    sleep_duration = get_config(client.app).SCAN_INTERVAL + 0.5
-    logging.warning(f"Sleeping {sleep_duration} s to wait for chart rebuild")
-    await asyncio.sleep(sleep_duration)
+    response = await local_client.get(_URL_GET_CHART_CONFIG)
+    assert response.status_code == 200
+    chart_config = ChartCustomConfig.model_validate(response.json())
 
-    tasks = [_get_svg_response(client) for _ in range(num_r)]
-    results = await asyncio.gather(*tasks)
-    assert results[0] != svg_r[0]
+    sleep_duration = chart_config.homeassistant.scan_interval + 0.05
+    caplog.clear()
+    with caplog.at_level(logging.ERROR):
+        for _ in range(2):
+            logging.warning(
+                f"Sleeping {sleep_duration} s to wait for chart rebuild"
+            )
+            await asyncio.sleep(sleep_duration)
+
+            tasks = [_get_svg_response(local_client) for _ in range(num_r)]
+            results = await asyncio.gather(*tasks)
+            assert results[0] != svg_r[0]
+
+        assert len(caplog.messages) == 0, caplog.messages
+
+    svg_chart = await _get_svg_response(local_client)
+    (PATH_FIXTURES / "test_chart_arrows.svg").write_text(svg_chart)

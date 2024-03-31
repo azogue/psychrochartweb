@@ -495,9 +495,7 @@
   },
   {
     "attributes": {
-      "entity_id": [
-        "script.quick_cool_session"
-      ],
+      "entity_id": ["script.quick_cool_session"],
       "friendly_name": "Golpe de fr\u00edo",
       "icon": "mdi:arrow-down-bold"
     },
@@ -513,9 +511,7 @@
   },
   {
     "attributes": {
-      "entity_id": [
-        "script.quick_heat_session"
-      ],
+      "entity_id": ["script.quick_heat_session"],
       "friendly_name": "Golpe de calor",
       "icon": "mdi:arrow-up-bold"
     },
@@ -531,9 +527,7 @@
   },
   {
     "attributes": {
-      "entity_id": [
-        "script.start_tvshows_mode"
-      ],
+      "entity_id": ["script.start_tvshows_mode"],
       "friendly_name": "Modo series"
     },
     "context": {
@@ -548,9 +542,7 @@
   },
   {
     "attributes": {
-      "entity_id": [
-        "script.play_kodi_pvr"
-      ],
+      "entity_id": ["script.play_kodi_pvr"],
       "friendly_name": "La caja tonta"
     },
     "context": {
@@ -1060,10 +1052,7 @@
     "attributes": {
       "friendly_name": "Comandos",
       "icon": "mdi:developer-board",
-      "options": [
-        "Restart",
-        "Wifi_scan"
-      ]
+      "options": ["Restart", "Wifi_scan"]
     },
     "context": {
       "id": "1d4ebff531924427a1f6520e6e034dd7",
@@ -1107,9 +1096,7 @@
     "attributes": {
       "friendly_name": "Kodi API results",
       "icon": "mdi:kodi",
-      "options": [
-        "Nada que hacer"
-      ]
+      "options": ["Nada que hacer"]
     },
     "context": {
       "id": "65475fcc929e443087e6a5a8a5b00a7c",
@@ -1125,9 +1112,7 @@
     "attributes": {
       "friendly_name": "Youtube results",
       "icon": "mdi:youtube",
-      "options": [
-        "Nada que hacer"
-      ]
+      "options": ["Nada que hacer"]
     },
     "context": {
       "id": "86e7bee1d4964359b0359956a6949e3b",
@@ -1564,19 +1549,9 @@
   {
     "attributes": {
       "days_offset": 0,
-      "excludes": [
-        "sat",
-        "sun",
-        "holiday"
-      ],
+      "excludes": ["sat", "sun", "holiday"],
       "friendly_name": "D\u00eda laborable",
-      "workdays": [
-        "mon",
-        "tue",
-        "wed",
-        "thu",
-        "fri"
-      ]
+      "workdays": ["mon", "tue", "wed", "thu", "fri"]
     },
     "context": {
       "id": "d13b73eb207241f6a4224f50af71b099",
@@ -1610,21 +1585,11 @@
         "Party"
       ],
       "friendly_name": "Ambilight",
-      "hs_color": [
-        360,
-        0
-      ],
+      "hs_color": [360, 0],
       "icon": "mdi:monitor-star",
-      "rgb_color": [
-        255,
-        255,
-        255
-      ],
+      "rgb_color": [255, 255, 255],
       "supported_features": 21,
-      "xy_color": [
-        0.323,
-        0.329
-      ]
+      "xy_color": [0.323, 0.329]
     },
     "context": {
       "id": "9136f4b9290843949802b124706b93d3",
@@ -1664,12 +1629,7 @@
       "do_not_disturb_end": "08:00:00",
       "do_not_disturb_start": "22:00:00",
       "fan_speed": "Quiet",
-      "fan_speed_list": [
-        "Quiet",
-        "Balanced",
-        "Turbo",
-        "Max"
-      ],
+      "fan_speed_list": ["Quiet", "Balanced", "Turbo", "Max"],
       "filter_left": 121,
       "friendly_name": "Aspiradora",
       "main_brush_left": 271,
@@ -4389,9 +4349,7 @@
   {
     "attributes": {
       "auto": true,
-      "entity_id": [
-        "vacuum.robot_aspirador"
-      ],
+      "entity_id": ["vacuum.robot_aspirador"],
       "friendly_name": "all vacuum cleaners",
       "hidden": true,
       "order": 3
@@ -4784,11 +4742,7 @@
       "model": "zhimi.airpurifier.mc1",
       "motor_speed": 350,
       "speed": "Auto",
-      "speed_list": [
-        "Auto",
-        "Silent",
-        "Favorite"
-      ],
+      "speed_list": ["Auto", "Silent", "Favorite"],
       "supported_features": 1,
       "temperature": 23.0,
       "turbo_mode_supported": false
@@ -5699,9 +5653,7 @@
   {
     "attributes": {
       "auto": true,
-      "entity_id": [
-        "fan.airpurifier_office"
-      ],
+      "entity_id": ["fan.airpurifier_office"],
       "friendly_name": "all fans",
       "hidden": true,
       "order": 6
@@ -6181,10 +6133,7 @@
       "media_content_type": "music",
       "media_title": "Kiss FM",
       "shuffle": false,
-      "sonos_group": [
-        "media_player.dormitorio",
-        "media_player.salon"
-      ],
+      "sonos_group": ["media_player.dormitorio", "media_player.salon"],
       "source": "Kiss FM 89.2 (Pop Latino)",
       "source_list": [
         "Europa FM (Pop-Cartelera)",
@@ -6528,9 +6477,7 @@
       "media_title": "128 kbps mp3",
       "media_type": "station",
       "shuffle": false,
-      "source_list": [
-        "Denon AVR-X1400H - Tuner"
-      ],
+      "source_list": ["Denon AVR-X1400H - Tuner"],
       "supported_features": 65036,
       "volume_level": 0.48
     },
@@ -6585,10 +6532,7 @@
       "media_content_type": "music",
       "media_title": "Kiss FM",
       "shuffle": false,
-      "sonos_group": [
-        "media_player.dormitorio",
-        "media_player.salon"
-      ],
+      "sonos_group": ["media_player.dormitorio", "media_player.salon"],
       "source": "Kiss FM 89.2 (Pop Latino)",
       "source_list": [
         "Europa FM (Pop-Cartelera)",
@@ -7332,19 +7276,10 @@
       },
       "rssi": -44,
       "sample": {
-        "act": [
-          0,
-          0
-        ],
-        "bin": [
-          0,
-          0
-        ],
+        "act": [0, 0],
+        "bin": [0, 0],
         "lux": 42,
-        "relays": [
-          0,
-          0
-        ],
+        "relays": [0, 0],
         "snum": 65132
       },
       "status": {
@@ -7450,12 +7385,8 @@
       },
       "rssi": -47,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 39.54,
         "lux": 23,
         "pres": 1004.09,
@@ -7597,12 +7528,8 @@
       },
       "rssi": -62,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 39.63,
         "pres": 1004.8,
         "snum": 69601,
@@ -7846,28 +7773,12 @@
       "counter": 794734,
       "delta_ms": 5000,
       "friendly_name": "Consumo medido",
-      "gpio": [
-        34,
-        32,
-        35
-      ],
+      "gpio": [34, 32, 35],
       "icon": "mdi:flash",
-      "means": [
-        1866.35,
-        1863.56,
-        1861.05
-      ],
+      "means": [1866.35, 1863.56, 1861.05],
       "min_bias": 0,
-      "rms": [
-        596.95,
-        115.67,
-        691.72
-      ],
-      "rms_bias": [
-        1865.83,
-        1863.25,
-        1859.07
-      ],
+      "rms": [596.95, 115.67, 691.72],
+      "rms_bias": [1865.83, 1863.25, 1859.07],
       "total": 712.62,
       "ts": "2019/11/13 13:29:14.660",
       "unit_of_measurement": "W",
@@ -7949,12 +7860,8 @@
       },
       "rssi": -54,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 39.85,
         "lux": 477,
         "pres": 1005.62,
@@ -8032,12 +7939,8 @@
       },
       "rssi": -49,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 38.7,
         "lux": 0.1,
         "pres": 1005.65,
@@ -8114,12 +8017,8 @@
       },
       "rssi": -50,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 37.68,
         "lux": 2998,
         "pres": 1004.39,
@@ -8228,19 +8127,10 @@
       },
       "rssi": -56,
       "sample": {
-        "act": [
-          0,
-          0
-        ],
-        "bin": [
-          0,
-          0
-        ],
+        "act": [0, 0],
+        "bin": [0, 0],
         "lux": 175,
-        "relays": [
-          0,
-          0
-        ],
+        "relays": [0, 0],
         "snum": 636
       },
       "status": {
@@ -8281,12 +8171,8 @@
       },
       "rssi": -46,
       "sample": {
-        "act": [
-          0
-        ],
-        "bin": [
-          0
-        ],
+        "act": [0],
+        "bin": [0],
         "hum": 44.12,
         "pres": 1004.37,
         "snum": 26352,
@@ -8346,14 +8232,7 @@
       },
       "rssi": -38,
       "sample": {
-        "ds_temps": [
-          21.8125,
-          22.375,
-          23.6875,
-          24,
-          22.875,
-          22.6875
-        ],
+        "ds_temps": [21.8125, 22.375, 23.6875, 24, 22.875, 22.6875],
         "hum": 40.35,
         "snum": 104472,
         "temp": 23.91
@@ -8496,9 +8375,7 @@
   {
     "attributes": {
       "Confidence": "High",
-      "Types": [
-        "Stationary"
-      ],
+      "Types": ["Stationary"],
       "friendly_name": "Activity",
       "icon": "mdi:human-male"
     },
@@ -8600,10 +8477,7 @@
       "ISO Country Code": "ES",
       "Inland Water": "N/A",
       "Locality": "Alicante",
-      "Location": [
-        38.3837890625,
-        -0.41807402592050663
-      ],
+      "Location": [38.3837890625, -0.41807402592050663],
       "Name": "Calle Torero Luis Francisco Espla",
       "Ocean": "N/A",
       "Postal Code": "03540",
@@ -8866,17 +8740,11 @@
       "current_temperature": 22.2,
       "friendly_name": "Calefacci\u00f3n",
       "hvac_action": "idle",
-      "hvac_modes": [
-        "heat",
-        "off"
-      ],
+      "hvac_modes": ["heat", "off"],
       "max_temp": 27.0,
       "min_temp": 16.0,
       "preset_mode": null,
-      "preset_modes": [
-        "none",
-        "away"
-      ],
+      "preset_modes": ["none", "away"],
       "supported_features": 17,
       "temperature": 21.5
     },
@@ -8895,10 +8763,7 @@
       "current_temperature": 22.2,
       "friendly_name": "Termostato AC",
       "hvac_action": "off",
-      "hvac_modes": [
-        "cool",
-        "off"
-      ],
+      "hvac_modes": ["cool", "off"],
       "max_temp": 30.0,
       "min_temp": 20.0,
       "supported_features": 1,
@@ -9303,10 +9168,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Lamparita",
       "icon": "mdi:lava-lamp",
       "supported_features": 61
@@ -9323,10 +9185,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Bola",
       "max_mireds": 500,
       "min_mireds": 153,
@@ -9344,10 +9203,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Terraza",
       "icon": "mdi:lightbulb-outline",
       "max_mireds": 500,
@@ -9366,10 +9222,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Go",
       "icon": "mdi:lava-lamp",
       "max_mireds": 500,
@@ -9388,10 +9241,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Aura habitaci\u00f3n",
       "icon": "mdi:lava-lamp",
       "supported_features": 61
@@ -9408,10 +9258,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Cuenco",
       "icon": "mdi:lava-lamp",
       "max_mireds": 500,
@@ -9430,10 +9277,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Central",
       "icon": "mdi:ceiling-light",
       "max_mireds": 500,
@@ -9452,10 +9296,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Bolita",
       "max_mireds": 500,
       "min_mireds": 153,
@@ -9473,10 +9314,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Hue habitaci\u00f3n",
       "icon": "mdi:ceiling-light",
       "max_mireds": 500,
@@ -9495,10 +9333,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Tira",
       "icon": "mdi:dots-horizontal",
       "max_mireds": 500,
@@ -9517,10 +9352,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Pie TV",
       "icon": "mdi:lamp",
       "max_mireds": 500,
@@ -9539,10 +9371,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Tira cocina",
       "icon": "mdi:dots-horizontal",
       "max_mireds": 500,
@@ -9561,10 +9390,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Pie sof\u00e1",
       "icon": "mdi:lamp",
       "max_mireds": 500,
@@ -9601,10 +9427,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Hall",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9623,10 +9446,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Estudio",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9645,10 +9465,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Custom group for $lights",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9667,10 +9484,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Galer\u00eda",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9689,10 +9503,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Piso",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9711,10 +9522,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Office",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9733,10 +9541,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Dormitorio",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9755,10 +9560,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Custom group for $group",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9777,10 +9579,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "TV",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9799,10 +9598,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Cocina",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9821,10 +9617,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Exterior",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9843,10 +9636,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Sal\u00f3n",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9865,10 +9655,7 @@
   },
   {
     "attributes": {
-      "effect_list": [
-        "colorloop",
-        "random"
-      ],
+      "effect_list": ["colorloop", "random"],
       "friendly_name": "Ba\u00f1o",
       "is_hue_group": true,
       "max_mireds": 500,
@@ -9908,10 +9695,7 @@
       "battery": 100,
       "friendly_name": "Interruptor Dormitorio",
       "icon": "mdi:light-switch",
-      "last_updated": [
-        "2019-11-13",
-        "06:57:49"
-      ],
+      "last_updated": ["2019-11-13", "06:57:49"],
       "on": true,
       "reachable": true
     },
@@ -9930,10 +9714,7 @@
       "battery": 100,
       "friendly_name": "Interruptor Cocina",
       "icon": "mdi:light-switch",
-      "last_updated": [
-        "2019-11-11",
-        "23:23:19"
-      ],
+      "last_updated": ["2019-11-11", "23:23:19"],
       "on": true,
       "reachable": true
     },
@@ -9952,10 +9733,7 @@
       "battery": 100,
       "friendly_name": "Interruptor Estudio",
       "icon": "mdi:light-switch",
-      "last_updated": [
-        "2019-11-13",
-        "12:16:52"
-      ],
+      "last_updated": ["2019-11-13", "12:16:52"],
       "on": true,
       "reachable": true
     },
@@ -9974,10 +9752,7 @@
       "battery": 94,
       "friendly_name": "Interruptor Sal\u00f3n",
       "icon": "mdi:light-switch",
-      "last_updated": [
-        "2019-11-12",
-        "23:36:14"
-      ],
+      "last_updated": ["2019-11-12", "23:36:14"],
       "on": true,
       "reachable": true
     },

@@ -5,10 +5,10 @@ homeassistant:
 interior:
 
 exterior:
-- name: External Location
-  temperature: sensor.temperature
-  humidity: sensor.humidity
-  style:
-    color: '#FD9D64'
-    alpha: 0.9
-    markersize: 8
+  - name: External Location
+    temperature: sensor.temperature
+    humidity: sensor.humidity
+    style:
+      color: "#FD9D64"
+      alpha: 0.9
+      markersize: 8

@@ -16,7 +16,7 @@ interior:
     humidity: sensor.sensor_bathroom_ac_humidity
     orientation: NW
     style:
-      color: '#FD9D64'
+      color: "#FD9D64"
       alpha: 0.9
       markersize: 8
     temperature: sensor.sensor_bathroom_ac_temperature
@@ -25,7 +25,7 @@ interior:
     orientation: W
     style:
       alpha: 0.9
-      color: '#F15346'
+      color: "#F15346"
       markersize: 9
     temperature: sensor.sensor_kitchen_temperature
   Dormitorio:
@@ -49,7 +49,7 @@ interior:
     orientation: SW
     style:
       alpha: 0.9
-      color: '#8FBB46'
+      color: "#8FBB46"
       markersize: 12
     temperature: sensor.sensor_office_temperature
   Salón:
@@ -67,7 +67,7 @@ exterior:
     orientation: SW
     style:
       alpha: 0.7
-      color: '#A250FB'
+      color: "#A250FB"
       markersize: 9
     temperature: sensor.sensor_galeria_temperature
   Terraza:
@@ -75,7 +75,7 @@ exterior:
     orientation: NE
     style:
       alpha: 0.7
-      color: '#5882FB'
+      color: "#5882FB"
       markersize: 12
     temperature: sensor.sensor_terraza_temperature
   Previsto:
@@ -83,7 +83,7 @@ exterior:
     humidity: sensor.dark_sky_humidity
     style:
       alpha: 0.6
-      color: '#7996BB'
+      color: "#7996BB"
       markersize: 7
 
 sun: sun.sun

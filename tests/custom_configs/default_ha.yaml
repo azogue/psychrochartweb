@@ -7,12 +7,12 @@ homeassistant:
   delta_arrows: 3600
 
 interior:
-- name: RoomName
-  temperature: sensor.temperature
-  humidity: sensor.humidity
-  style:
-    color: '#FD9D64'
-    alpha: 0.9
-    markersize: 8
+  - name: RoomName
+    temperature: sensor.temperature
+    humidity: sensor.humidity
+    style:
+      color: "#FD9D64"
+      alpha: 0.9
+      markersize: 8
 
 exterior:

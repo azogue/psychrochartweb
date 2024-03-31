@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import logging
 from itertools import chain
 from pathlib import Path
 from typing import Any
@@ -39,7 +38,7 @@ class HAConfig(BaseModel):
     altitude: int = 100
     base_pressure: float | None = None
     pressure_sensor: str | None = None
-    scan_interval: int = Field(default=30, ge=1, le=3600 * 24 * 7)
+    scan_interval: int | float = Field(default=30, gt=0, le=3600 * 24 * 7)
     delta_arrows: int = Field(default=3600, ge=1, le=3600 * 24)
 
 
@@ -70,14 +69,7 @@ class ChartCustomConfig(BaseModel):
     def from_yaml_file(cls, path_config: Path):
         """Read configuration from a yaml file."""
         raw_data: dict = safe_load(path_config.read_text(encoding="utf-8"))
-        try:
-            return cls.model_validate(raw_data)
-        except (ValueError, TypeError) as exc:  # pragma: no cover
-            logging.error(
-                f"Bad config import from {path_config}: {exc}. "
-                f"Raw data is {raw_data}. Using empty one"
-            )
-            return cls(homeassistant=HAConfig())
+        return cls.model_validate(raw_data)
 
     @property
     def ha_sensors(self) -> list[str]:

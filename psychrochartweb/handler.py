@@ -3,6 +3,7 @@ import logging
 import warnings
 from collections import deque
 from contextlib import suppress
+from math import ceil
 from time import monotonic
 from typing import Any
 
@@ -37,9 +38,8 @@ class ChartHandler(BaseModel):
             config.homeassistant.base_pressure = GetStandardAtmPressure(
                 config.homeassistant.altitude
             )
-        num_samples = (
-            config.homeassistant.delta_arrows
-            // config.homeassistant.scan_interval
+        num_samples = config.homeassistant.delta_arrows // int(
+            ceil(config.homeassistant.scan_interval)
         )
         logging.info(
             f"HA history up to {num_samples} samples (evolution arrows)"

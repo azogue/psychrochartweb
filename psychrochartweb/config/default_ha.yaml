@@ -14,7 +14,7 @@ interior:
       color: "#FD9D64"
       alpha: 0.9
       markersize: 8
-exterior:
+# exterior:
 
 interior_style_line:
   color: darkgreen

@@ -1,0 +1,144 @@
+homeassistant:
+  token: "super-secret"
+  host: "http://192.168.1.111:8123"
+  altitude: 7
+  pressure_sensor: sensor.sensor_terraza_pressure
+  delta_arrows: 120
+  scan_interval: 0.25
+
+interior:
+  - name: Aseo
+    humidity: sensor.aseo_humidity
+    style:
+      color: "#007bff"
+      alpha: 0.9
+      markersize: 8
+    temperature: sensor.aseo_temperature
+  - name: Baño
+    humidity: sensor.humidity_main_bathroom
+    style:
+      color: "#3edffb"
+      alpha: 0.9
+      markersize: 8
+    temperature: sensor.temperature_main_bathroom
+  - name: Cocina
+    humidity: sensor.sensor_kitchen_humidity
+    style:
+      alpha: 0.9
+      color: "#F15346"
+      markersize: 9
+    temperature: sensor.sensor_kitchen_temperature
+  - name: Dormitorio (ESP)
+    # ESP Home
+    humidity: sensor.dormitorio_humidity_rpi2mpd
+    style:
+      alpha: 0.9
+      color: darkgreen
+      markersize: 10
+    temperature: sensor.dormitorio_temperature_rpi2mpd
+  - name: Dormitorio
+    # Aqara sensor
+    humidity: sensor.multi_dorm_humidity
+    style:
+      alpha: 0.9
+      color: "#51E81F"
+      markersize: 10
+    temperature: sensor.multi_dorm_temperature
+  - name: Estudio
+    humidity: sensor.sensor_study_humidity
+    style:
+      alpha: 0.9
+      color: "#FFA067"
+      markersize: 9
+    temperature: sensor.sensor_study_temperature
+  - name: Office
+    # TTGO Office
+    humidity: sensor.sensor_office_humidity
+    style:
+      alpha: 0.9
+      color: "#bb1247"
+      markersize: 12
+    temperature: sensor.sensor_office_temperature
+
+  - name: Office-Window
+    # multi Office-window
+    humidity: sensor.multi_office_humidity
+    style:
+      alpha: 0.9
+      color: "#bb2b1e"
+      markersize: 12
+    temperature: sensor.multi_office_temperature
+
+  - name: Salon
+    # smarty salon
+    humidity: sensor.sensor_livingroom_humidity
+    style:
+      alpha: 0.9
+      color: "#FFE81C"
+      markersize: 12
+    temperature: sensor.sensor_livingroom_temperature
+  - name: Sofa
+    humidity: sensor.multi_2_humidity
+    style:
+      alpha: 0.8
+      color: "#E3DB55"
+      markersize: 10
+    temperature: sensor.multi_2_temperature
+
+exterior:
+  - name: Galería
+    humidity: sensor.sensor_galeria_humidity
+    style:
+      alpha: 0.7
+      color: "#CE09F0"
+      markersize: 9
+    temperature: sensor.sensor_galeria_temperature
+  - name: Galeria (sombra)
+    humidity: sensor.multi_1_humidity
+    style:
+      alpha: 0.9
+      color: "#fb6150"
+      markersize: 11
+    temperature: sensor.multi_1_temperature
+  - name: Terraza
+    humidity: sensor.sensor_terraza_humidity
+    style:
+      alpha: 0.7
+      color: "#E37207"
+      markersize: 12
+    temperature: sensor.sensor_terraza_temperature
+  - name: Terraza (sombra)
+    humidity: sensor.multi_3_humidity
+    style:
+      alpha: 0.9
+      color: "#CC9706"
+      markersize: 11
+    temperature: sensor.multi_3_temperature
+  - name: Previsto
+    temperature: sensor.dark_sky_temperature
+    humidity: sensor.dark_sky_humidity
+    style:
+      alpha: 0.6
+      color: "#7996BB"
+      markersize: 7
+
+interior_style_line:
+  color: darkgreen
+  lw: 2
+  alpha: 0.5
+  ls: ":"
+interior_style_fill:
+  color: green
+  lw: 0
+  alpha: 0.3
+exterior_style_line:
+  #  color: darkblue
+  color: "#E37207"
+  lw: 1
+  alpha: 0.5
+  ls: "--"
+exterior_style_fill:
+  #  color: darkblue
+  color: "#E37207"
+  lw: 0
+  alpha: 0.2

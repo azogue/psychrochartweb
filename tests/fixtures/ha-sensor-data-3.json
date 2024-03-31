@@ -1,0 +1,1194 @@
+[
+  {
+    "entity_id": "sensor.temperatura_interior",
+    "state": "20.56",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "icon": "mdi:calculator",
+      "friendly_name": "Temperatura interior",
+      "device_class": "temperature",
+      "hidden": true
+    },
+    "last_changed": "2024-03-31T11:36:27.717805+00:00",
+    "last_updated": "2024-03-31T11:36:27.717805+00:00",
+    "context": {
+      "id": "01HTA4QVA5XP4RM3NPKK3NV003",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.temperatura_exterior",
+    "state": "17.1",
+    "attributes": {
+      "state_class": "measurement",
+      "min_entity_id": "sensor.sensor_terraza_temperature",
+      "unit_of_measurement": "\u00b0C",
+      "icon": "mdi:calculator",
+      "friendly_name": "Temperatura exterior",
+      "device_class": "temperature"
+    },
+    "last_changed": "2024-03-31T11:36:02.002750+00:00",
+    "last_updated": "2024-03-31T11:36:02.002750+00:00",
+    "context": {
+      "id": "01HTA4Q26JYJJYJPMJZQDYTG4Z",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.humedad_interior",
+    "state": "57.2",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "icon": "mdi:calculator",
+      "friendly_name": "Humedad interior",
+      "device_class": "humidity",
+      "hidden": true
+    },
+    "last_changed": "2024-03-31T11:30:24.958043+00:00",
+    "last_updated": "2024-03-31T11:30:24.958043+00:00",
+    "context": {
+      "id": "01HTA4CS1YRC210NV2RRTDJFXH",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.humedad_exterior",
+    "state": "84.6",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "icon": "mdi:calculator",
+      "friendly_name": "Humedad exterior",
+      "device_class": "humidity"
+    },
+    "last_changed": "2024-03-31T11:37:32.953412+00:00",
+    "last_updated": "2024-03-31T11:37:32.953412+00:00",
+    "context": {
+      "id": "01HTA4SV0S5PYY3DZ9BT8T02FS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.temperatura_stats_mean",
+    "state": "20.44",
+    "attributes": {
+      "state_class": "measurement",
+      "buffer_usage_ratio": 0.39,
+      "age_coverage_ratio": 0.97,
+      "source_value_valid": true,
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:calculator",
+      "friendly_name": "Temperatura interior (rm)"
+    },
+    "last_changed": "2024-03-31T11:36:23.053715+00:00",
+    "last_updated": "2024-03-31T11:36:27.945753+00:00",
+    "context": {
+      "id": "01HTA4QVH9QSJXT2EPXK8DCJRN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.temperatura_ext_stats_mean",
+    "state": "14.78",
+    "attributes": {
+      "state_class": "measurement",
+      "buffer_usage_ratio": 0.11,
+      "age_coverage_ratio": 0.98,
+      "source_value_valid": true,
+      "unit_of_measurement": "\u00b0C",
+      "icon": "mdi:home-thermometer",
+      "friendly_name": "Exterior (rm)",
+      "device_class": "temperature"
+    },
+    "last_changed": "2024-03-31T11:36:26.097912+00:00",
+    "last_updated": "2024-03-31T11:36:26.097912+00:00",
+    "context": {
+      "id": "01HTA4QSQHCAMRDR3C9CRAX2XJ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.humedad_stats_mean",
+    "state": "57.1",
+    "attributes": {
+      "state_class": "measurement",
+      "buffer_usage_ratio": 0.14,
+      "age_coverage_ratio": 0.67,
+      "source_value_valid": true,
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:calculator",
+      "friendly_name": "Humedad interior (rm)"
+    },
+    "last_changed": "2024-03-31T11:28:56.444260+00:00",
+    "last_updated": "2024-03-31T11:37:26.663181+00:00",
+    "context": {
+      "id": "01HTA4SMW71ABYJJTS6VD2AV46",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.humedad_ext_stats_mean",
+    "state": "84.5",
+    "attributes": {
+      "state_class": "measurement",
+      "buffer_usage_ratio": 0.78,
+      "age_coverage_ratio": 0.97,
+      "source_value_valid": true,
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:calculator",
+      "friendly_name": "humedad_ext_stats_mean"
+    },
+    "last_changed": "2024-03-31T11:12:05.813835+00:00",
+    "last_updated": "2024-03-31T11:37:32.964381+00:00",
+    "context": {
+      "id": "01HTA4SV141DS7TP8AFDPEA9QX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.openweathermap_dew_point",
+    "state": "14.3",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "temperature",
+      "friendly_name": "OpenWeatherMap Dew Point"
+    },
+    "last_changed": "2024-03-31T11:29:22.772830+00:00",
+    "last_updated": "2024-03-31T11:29:22.772830+00:00",
+    "context": {
+      "id": "01HTA4AWAMJ7SC61MVNMM15Y8F",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.local_weather_temperature",
+    "state": "15.98",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "temperature",
+      "friendly_name": "OpenWeatherMap Temperature"
+    },
+    "last_changed": "2024-03-31T11:29:22.773342+00:00",
+    "last_updated": "2024-03-31T11:29:22.773342+00:00",
+    "context": {
+      "id": "01HTA4AWANVT4TJ3P723K2CV4Y",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.openweathermap_feels_like_temperature",
+    "state": "15.98",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "temperature",
+      "friendly_name": "OpenWeatherMap Feels like temperature"
+    },
+    "last_changed": "2024-03-31T11:29:22.773627+00:00",
+    "last_updated": "2024-03-31T11:29:22.773627+00:00",
+    "context": {
+      "id": "01HTA4AWANFGY7JV4MKZBJBTVC",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.local_weather_humidity",
+    "state": "90",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "humidity",
+      "friendly_name": "OpenWeatherMap Humidity"
+    },
+    "last_changed": "2024-03-31T11:29:22.773983+00:00",
+    "last_updated": "2024-03-31T11:29:22.773983+00:00",
+    "context": {
+      "id": "01HTA4AWANDA0PHA1EXJMT9EEN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.local_weather_forecast_temperature",
+    "state": "15.98",
+    "attributes": {
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "temperature",
+      "friendly_name": "OpenWeatherMap Forecast Temperature"
+    },
+    "last_changed": "2024-03-31T11:29:22.776071+00:00",
+    "last_updated": "2024-03-31T11:29:22.776071+00:00",
+    "context": {
+      "id": "01HTA4AWARR8N52K2YD4XFPW71",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.local_weather_forecast_temperature_low",
+    "state": "12.7",
+    "attributes": {
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by OpenWeatherMap",
+      "device_class": "temperature",
+      "friendly_name": "OpenWeatherMap Forecast Temperature Low"
+    },
+    "last_changed": "2024-03-31T07:09:22.683395+00:00",
+    "last_updated": "2024-03-31T07:09:22.683395+00:00",
+    "context": {
+      "id": "01HT9NESVVV2NQA14YPTGV26AA",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.airpurifier_office_temperature",
+    "state": "20.4",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Purificador Temperature"
+    },
+    "last_changed": "2024-03-31T11:19:18.960459+00:00",
+    "last_updated": "2024-03-31T11:19:18.960459+00:00",
+    "context": {
+      "id": "01HTA3RENGGK1DRAE1D5E7W4TM",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.airpurifier_office_humidity",
+    "state": "65",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Purificador Humidity"
+    },
+    "last_changed": "2024-03-31T11:29:20.894425+00:00",
+    "last_updated": "2024-03-31T11:29:20.894425+00:00",
+    "context": {
+      "id": "01HTA4ATFYQQ7D0GA937S0C8JW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_galeria_humidity",
+    "state": "67.6",
+    "attributes": {
+      "unit_of_measurement": "%",
+      "friendly_name": "Humedad",
+      "icon": "mdi:water-percent",
+      "device_class": "humidity"
+    },
+    "last_changed": "2024-03-31T11:37:32.940478+00:00",
+    "last_updated": "2024-03-31T11:37:32.940478+00:00",
+    "context": {
+      "id": "01HTA4SV0CXADD8M3NNW1N7TDD",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_livingroom_humidity",
+    "state": "52.1",
+    "attributes": {
+      "unit_of_measurement": "%",
+      "friendly_name": "Humedad",
+      "icon": "mdi:water-percent",
+      "device_class": "humidity"
+    },
+    "last_changed": "2024-03-31T11:37:12.833994+00:00",
+    "last_updated": "2024-03-31T11:37:12.833994+00:00",
+    "context": {
+      "id": "01HTA4S7C1YMEXQJ5CYXS068DE",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ibeacon1_temperatura",
+    "state": "21.0",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:thermometer",
+      "friendly_name": "iBeacon1 Temperatura"
+    },
+    "last_changed": "2024-03-31T11:35:00.332118+00:00",
+    "last_updated": "2024-03-31T11:35:00.332118+00:00",
+    "context": {
+      "id": "01HTA4N5ZCD6N2G3ZQPREQ8DF6",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ibeacon1_presion",
+    "state": "997.3",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "mbar",
+      "device_class": "pressure",
+      "icon": "mdi:weather-cloudy",
+      "friendly_name": "iBeacon1 Presi\u00f3n"
+    },
+    "last_changed": "2024-03-31T11:36:20.325612+00:00",
+    "last_updated": "2024-03-31T11:36:20.325612+00:00",
+    "context": {
+      "id": "01HTA4QM3566QHN44KEJZ4E5G0",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ibeacon1_humedad",
+    "state": "58.9",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:water-percent",
+      "friendly_name": "iBeacon1 Humedad"
+    },
+    "last_changed": "2024-03-31T11:31:40.358474+00:00",
+    "last_updated": "2024-03-31T11:31:40.358474+00:00",
+    "context": {
+      "id": "01HTA4F2P65CZM5VKQ2MXTBW9V",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.dormitorio_temperature_rpi2mpd",
+    "state": "20.0",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:thermometer",
+      "friendly_name": "ESPHome Dormitorio Temperatura"
+    },
+    "last_changed": "2024-03-31T09:45:21.426676+00:00",
+    "last_updated": "2024-03-31T09:45:21.426676+00:00",
+    "context": {
+      "id": "01HT9YCD8J2TSV059YMYFN1X06",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.dormitorio_pressure_rpi2mpd",
+    "state": "996.2",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "mbar",
+      "device_class": "pressure",
+      "icon": "mdi:weather-cloudy",
+      "friendly_name": "Dormitorio Presi\u00f3n"
+    },
+    "last_changed": "2024-03-31T11:36:21.507445+00:00",
+    "last_updated": "2024-03-31T11:36:21.507445+00:00",
+    "context": {
+      "id": "01HTA4QN83C3FCCA6YA5TSAWVZ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.dormitorio_humidity_rpi2mpd",
+    "state": "59.1",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:water-percent",
+      "friendly_name": "ESPHome Dormitorio Humedad"
+    },
+    "last_changed": "2024-03-30T09:25:46.396094+00:00",
+    "last_updated": "2024-03-30T09:25:46.396094+00:00",
+    "context": {
+      "id": "01HT7AVTRWRQ6AH36HPKND978K",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_study_temperature",
+    "state": "20.7",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:thermometer",
+      "friendly_name": "Estudio Temperatura"
+    },
+    "last_changed": "2024-03-31T11:11:56.605661+00:00",
+    "last_updated": "2024-03-31T11:11:56.605661+00:00",
+    "context": {
+      "id": "01HTA3AYNXA9RV9R5J59VJ1KM0",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_study_pressure",
+    "state": "996.2",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "mbar",
+      "device_class": "pressure",
+      "icon": "mdi:weather-cloudy",
+      "friendly_name": "Estudio Presi\u00f3n"
+    },
+    "last_changed": "2024-03-31T11:36:41.609399+00:00",
+    "last_updated": "2024-03-31T11:36:41.609399+00:00",
+    "context": {
+      "id": "01HTA4R8W9Y5XF1498QVT20XCX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_study_humidity",
+    "state": "55.4",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:water-percent",
+      "friendly_name": "Estudio Humedad"
+    },
+    "last_changed": "2024-03-31T11:37:26.658626+00:00",
+    "last_updated": "2024-03-31T11:37:26.658626+00:00",
+    "context": {
+      "id": "01HTA4SMW2THQS57VHVYJTQ9XR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_terraza_temperature",
+    "state": "17.1",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:thermometer",
+      "friendly_name": "Terraza Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:01.999224+00:00",
+    "last_updated": "2024-03-31T11:36:01.999224+00:00",
+    "context": {
+      "id": "01HTA4Q26F5MARMWAEXGWPTEXT",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_terraza_pressure",
+    "state": "998.3",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "mbar",
+      "device_class": "pressure",
+      "icon": "mdi:weather-cloudy",
+      "friendly_name": "Terraza Presi\u00f3n"
+    },
+    "last_changed": "2024-03-31T11:36:02.013620+00:00",
+    "last_updated": "2024-03-31T11:36:02.013620+00:00",
+    "context": {
+      "id": "01HTA4Q26XVNMB1CMK8VTA6CQQ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_terraza_humidity",
+    "state": "99.6",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:water-percent",
+      "friendly_name": "Terraza Humedad"
+    },
+    "last_changed": "2024-03-31T08:22:31.881564+00:00",
+    "last_updated": "2024-03-31T08:22:31.881564+00:00",
+    "context": {
+      "id": "01HT9SMR69G6N3219P6M66VN0C",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.mh_z19_temperature",
+    "state": "21",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "MH-Z19 Temperature"
+    },
+    "last_changed": "2024-03-31T11:34:03.836303+00:00",
+    "last_updated": "2024-03-31T11:34:03.836303+00:00",
+    "context": {
+      "id": "01HTA4KESW58K2BCGVNBR9GFEA",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_office_temperature",
+    "state": "20.8",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "icon": "mdi:thermometer",
+      "friendly_name": "Office Temp"
+    },
+    "last_changed": "2024-03-31T11:34:57.983731+00:00",
+    "last_updated": "2024-03-31T11:34:57.983731+00:00",
+    "context": {
+      "id": "01HTA4N3NZ5TNHW2VB1YSEHHJB",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_office_pressure",
+    "state": "996.8",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "mbar",
+      "device_class": "pressure",
+      "icon": "mdi:weather-cloudy",
+      "friendly_name": "TTGO Pressure"
+    },
+    "last_changed": "2024-03-31T11:36:27.992077+00:00",
+    "last_updated": "2024-03-31T11:36:27.992077+00:00",
+    "context": {
+      "id": "01HTA4QVJRY3DZH9TPQRXSFDKJ",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_office_humidity",
+    "state": "53.0",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "icon": "mdi:water-percent",
+      "friendly_name": "TTGO Humidity"
+    },
+    "last_changed": "2024-03-30T09:25:52.866575+00:00",
+    "last_updated": "2024-03-30T09:25:52.866575+00:00",
+    "context": {
+      "id": "01HT7AW132AGG0VXT0CJG3TG2A",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.system_monitor_processor_temperature",
+    "state": "50.6",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "System Monitor Temperatura del procesador"
+    },
+    "last_changed": "2024-03-31T11:37:24.496489+00:00",
+    "last_updated": "2024-03-31T11:37:24.496489+00:00",
+    "context": {
+      "id": "01HTA4SJRG9GB9Y9TFYWDJSSZ0",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_kitchen_temperature",
+    "state": "20.15",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Temperatura",
+      "icon": "mdi:thermometer"
+    },
+    "last_changed": "2024-03-31T11:35:20.741150+00:00",
+    "last_updated": "2024-03-31T11:35:20.741150+00:00",
+    "context": {
+      "id": "01HTA4NSX5P9XAP4KPN15S0TJN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_kitchen_humidity",
+    "state": "55.38",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Humedad",
+      "icon": "mdi:water-percent"
+    },
+    "last_changed": "2024-03-31T11:35:20.752860+00:00",
+    "last_updated": "2024-03-31T11:35:20.752860+00:00",
+    "context": {
+      "id": "01HTA4NSXGGR4G2PRQ7XFQPJ39",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_3_temperature",
+    "state": "15.89",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Terraza Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:49.949593+00:00",
+    "last_updated": "2024-03-31T11:36:49.949593+00:00",
+    "context": {
+      "id": "01HTA4RH0XSDH1YY9DTAPV6NJA",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_3_humidity",
+    "state": "85.48",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Terraza Humedad"
+    },
+    "last_changed": "2024-03-31T11:36:49.958792+00:00",
+    "last_updated": "2024-03-31T11:36:49.958792+00:00",
+    "context": {
+      "id": "01HTA4RH16WHYAN9X5YMF0AVEW",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_1_temperature",
+    "state": "15.51",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Galer\u00eda Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:26.081525+00:00",
+    "last_updated": "2024-03-31T11:36:26.081525+00:00",
+    "context": {
+      "id": "01HTA4QSQ1EE3QMRKG6R14DS4N",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_1_humidity",
+    "state": "85.57",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Galer\u00eda Humedad"
+    },
+    "last_changed": "2024-03-31T11:36:26.096087+00:00",
+    "last_updated": "2024-03-31T11:36:26.096087+00:00",
+    "context": {
+      "id": "01HTA4QSQG2Y57AN032B08JSVN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_2_temperature",
+    "state": "22.12",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Sal\u00f3n Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:12.435919+00:00",
+    "last_updated": "2024-03-31T11:36:12.435919+00:00",
+    "context": {
+      "id": "01HTA4QCCK471XJ80ZCWPQWP3X",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_2_humidity",
+    "state": "52.07",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Sal\u00f3n Humedad"
+    },
+    "last_changed": "2024-03-31T11:36:12.435107+00:00",
+    "last_updated": "2024-03-31T11:36:12.435107+00:00",
+    "context": {
+      "id": "01HTA4QCCK7YS9THDDS4DX6JM2",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_office_temperature",
+    "state": "20.36",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Office Temperatura"
+    },
+    "last_changed": "2024-03-31T11:34:16.498370+00:00",
+    "last_updated": "2024-03-31T11:34:16.498370+00:00",
+    "context": {
+      "id": "01HTA4KV5JCKBBPPJS028FHRH2",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_office_humidity",
+    "state": "64.33",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Office Humedad"
+    },
+    "last_changed": "2024-03-31T11:34:16.511936+00:00",
+    "last_updated": "2024-03-31T11:34:16.511936+00:00",
+    "context": {
+      "id": "01HTA4KV5ZPRVVB93HVPKMJGRC",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.main_bathroom_temperature",
+    "state": "19.79",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Ba\u00f1o Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:23.045099+00:00",
+    "last_updated": "2024-03-31T11:36:23.045099+00:00",
+    "context": {
+      "id": "01HTA4QPR5K0PF08K57HEGXZAT",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.main_bathroom_humidity",
+    "state": "61.43",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Ba\u00f1o Humedad"
+    },
+    "last_changed": "2024-03-31T11:36:23.062649+00:00",
+    "last_updated": "2024-03-31T11:36:23.062649+00:00",
+    "context": {
+      "id": "01HTA4QPRP432MWKZK0FW1E0ZS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_dorm_temperature",
+    "state": "19.56",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Dormitorio Temperatura"
+    },
+    "last_changed": "2024-03-31T11:36:15.757901+00:00",
+    "last_updated": "2024-03-31T11:36:15.757901+00:00",
+    "context": {
+      "id": "01HTA4QFMD0FRJTS543BTVSDBA",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.multi_dorm_humidity",
+    "state": "61.84",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Dormitorio Humedad"
+    },
+    "last_changed": "2024-03-31T11:36:15.767276+00:00",
+    "last_updated": "2024-03-31T11:36:15.767276+00:00",
+    "context": {
+      "id": "01HTA4QFMQB43GW4MP5V6X054V",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_monitor_temperature",
+    "state": "20.4",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Sensor Monitor Temperatura"
+    },
+    "last_changed": "2024-03-31T05:12:04.742392+00:00",
+    "last_updated": "2024-03-31T05:12:04.742392+00:00",
+    "context": {
+      "id": "01HT9ER0W6G7VEFKR195DBXPMR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.sensor_monitor_humidity",
+    "state": "60.5",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Sensor Monitor Humedad"
+    },
+    "last_changed": "2024-03-31T11:03:43.110212+00:00",
+    "last_updated": "2024-03-31T11:03:43.110212+00:00",
+    "context": {
+      "id": "01HTA2VWR6RB6MJFN7RMBCWD6K",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.hue_motion_dormitorio_temperature",
+    "state": "19.06",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Hue Motion Dormitorio Temperatura"
+    },
+    "last_changed": "2024-03-31T11:13:58.119970+00:00",
+    "last_updated": "2024-03-31T11:13:58.119970+00:00",
+    "context": {
+      "id": "01HTA3ENB7AEXM129Z36X83870",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aseo_temperature",
+    "state": "20.63",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Multi Aseo Temperatura"
+    },
+    "last_changed": "2024-03-31T11:34:03.060715+00:00",
+    "last_updated": "2024-03-31T11:34:03.060715+00:00",
+    "context": {
+      "id": "01HTA4KE1MY3HNANYTKDSYER14",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aseo_humidity",
+    "state": "55.86",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "device_class": "humidity",
+      "friendly_name": "Multi Aseo Humedad"
+    },
+    "last_changed": "2024-03-31T11:37:13.965479+00:00",
+    "last_updated": "2024-03-31T11:37:13.965479+00:00",
+    "context": {
+      "id": "01HTA4S8FDX31G0JBENK6MQ4NX",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.hue_motion_cocina_temperature",
+    "state": "16.35",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "device_class": "temperature",
+      "friendly_name": "Hue Motion Cocina Temperatura"
+    },
+    "last_changed": "2024-03-31T08:48:14.028728+00:00",
+    "last_updated": "2024-03-31T08:48:14.028728+00:00",
+    "context": {
+      "id": "01HT9V3T6CRGSG0N6RWAGX2ZZH",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_volume_1_average_disk_temp",
+    "state": "34.0",
+    "attributes": {
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Volume 1) Temperatura media del disco"
+    },
+    "last_changed": "2024-03-31T05:42:27.808370+00:00",
+    "last_updated": "2024-03-31T05:42:27.808370+00:00",
+    "context": {
+      "id": "01HT9GFN70H0ADDDVAPG4KNQD7",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_drive_1_temperature",
+    "state": "32",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Drive 3) Temperatura"
+    },
+    "last_changed": "2024-03-31T05:42:27.808706+00:00",
+    "last_updated": "2024-03-31T05:42:27.808706+00:00",
+    "context": {
+      "id": "01HT9GFN70325V80QPK0MKWJDR",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_drive_5_temperature",
+    "state": "34",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Drive 2) Temperatura"
+    },
+    "last_changed": "2024-03-31T11:28:13.876663+00:00",
+    "last_updated": "2024-03-31T11:28:13.876663+00:00",
+    "context": {
+      "id": "01HTA48S1M5YMCEV2WYMFRPQ7V",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_drive_4_temperature",
+    "state": "36",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Drive 1) Temperatura"
+    },
+    "last_changed": "2024-03-31T10:58:09.766055+00:00",
+    "last_updated": "2024-03-31T10:58:09.766055+00:00",
+    "context": {
+      "id": "01HTA2HQ761DF4R5XD79Y8E4YM",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_drive_2_temperature",
+    "state": "28",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Drive 4) Temperatura"
+    },
+    "last_changed": "2024-03-31T09:58:01.663719+00:00",
+    "last_updated": "2024-03-31T09:58:01.663719+00:00",
+    "context": {
+      "id": "01HT9Z3KNZKM1ATTX5F6279BZC",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_drive_3_temperature",
+    "state": "35",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS (Drive 5) Temperatura"
+    },
+    "last_changed": "2024-03-31T09:58:01.668909+00:00",
+    "last_updated": "2024-03-31T09:58:01.668909+00:00",
+    "context": {
+      "id": "01HT9Z3KP4V60X9W6MRGM5WMJN",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.ds_nas_temperature",
+    "state": "40",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Data provided by Synology",
+      "device_class": "temperature",
+      "friendly_name": "DS-NAS Temperatura"
+    },
+    "last_changed": "2024-03-31T11:13:11.726953+00:00",
+    "last_updated": "2024-03-31T11:13:11.726953+00:00",
+    "context": {
+      "id": "01HTA3D81EA653VKFMMYVSXDY3",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aemet_daily_forecast_temperature",
+    "state": "21",
+    "attributes": {
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Powered by AEMET OpenData",
+      "device_class": "temperature",
+      "friendly_name": "AEMET Daily forecast temperature"
+    },
+    "last_changed": "2024-03-31T06:42:26.050604+00:00",
+    "last_updated": "2024-03-31T06:42:26.050604+00:00",
+    "context": {
+      "id": "01HT9KXF42Q3477K86PK98MRSS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aemet_daily_forecast_temperature_low",
+    "state": "11",
+    "attributes": {
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Powered by AEMET OpenData",
+      "device_class": "temperature",
+      "friendly_name": "AEMET Daily forecast temperature low"
+    },
+    "last_changed": "2024-03-30T23:00:40.480860+00:00",
+    "last_updated": "2024-03-30T23:00:40.480860+00:00",
+    "context": {
+      "id": "01HT8SFYX0077VDFSKMWQGDK2D",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aemet_humidity",
+    "state": "89.0",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "%",
+      "attribution": "Powered by AEMET OpenData",
+      "device_class": "humidity",
+      "friendly_name": "AEMET Humidity"
+    },
+    "last_changed": "2024-03-31T11:32:28.958864+00:00",
+    "last_updated": "2024-03-31T11:32:28.958864+00:00",
+    "context": {
+      "id": "01HTA4GJ4Y5A4V8ZTSARQZ5E97",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aemet_temperature",
+    "state": "15.6",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Powered by AEMET OpenData",
+      "device_class": "temperature",
+      "friendly_name": "AEMET Temperature"
+    },
+    "last_changed": "2024-03-31T11:32:28.962175+00:00",
+    "last_updated": "2024-03-31T11:32:28.962175+00:00",
+    "context": {
+      "id": "01HTA4GJ521RK3W53PR7X974PS",
+      "parent_id": null,
+      "user_id": null
+    }
+  },
+  {
+    "entity_id": "sensor.aemet_temperature_feeling",
+    "state": "19",
+    "attributes": {
+      "state_class": "measurement",
+      "unit_of_measurement": "\u00b0C",
+      "attribution": "Powered by AEMET OpenData",
+      "device_class": "temperature",
+      "friendly_name": "AEMET Temperature feeling"
+    },
+    "last_changed": "2024-03-31T11:02:29.096953+00:00",
+    "last_updated": "2024-03-31T11:02:29.096953+00:00",
+    "context": {
+      "id": "01HTA2SMF87N2876GR19Z9A1W0",
+      "parent_id": null,
+      "user_id": null
+    }
+  }
+]

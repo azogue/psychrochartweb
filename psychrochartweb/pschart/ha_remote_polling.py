@@ -34,13 +34,6 @@ async def _get_states(ha_config: ChartCustomConfig):
     async with httpx.AsyncClient(headers=headers) as client:
         try:
             response = await client.get(url_get_sensors, timeout=_HA_TIMEOUT)
-            # TODO remove this after mocking data
-            # (
-            # (
-            #     Path(__file__).absolute().parents[2]
-            #     / "tests"
-            #     / f"example-ha-states-raw-{str(monotonic())[-5:]}.json"
-            # ).write_bytes(response.content)
             return response.json()
         except (httpx.HTTPError, TimeoutError) as exc:
             logging.error(

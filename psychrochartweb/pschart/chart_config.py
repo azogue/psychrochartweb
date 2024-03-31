@@ -2,10 +2,9 @@
 import logging
 from itertools import chain
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-import attr
-import cattr
+from pydantic import BaseModel, Field
 from yaml import safe_load
 
 EXT_ZONE_LINE = {"color": "darkblue", "lw": 1, "alpha": 0.5, "ls": "--"}
@@ -14,61 +13,65 @@ INT_ZONE_LINE = {"color": "darkgreen", "lw": 2, "alpha": 0.5, "ls": ":"}
 INT_ZONE_FILL = {"color": "darkgreen", "lw": 0, "alpha": 0.3}
 
 
-@attr.s
-class SensorPoint:
+class SensorPoint(BaseModel):
     """
     Pair of temperature and humidity HA entities,
     labeled and with customized matplotlib styling.
     """
 
-    name: str = attr.ib()
-    temperature: str = attr.ib()
-    humidity: str = attr.ib()
-    style: Dict[str, Any] = attr.ib(factory=dict)
+    name: str
+    temperature: str
+    humidity: str
+    style: dict[str, Any] = Field(default_factory=dict)
 
 
-@attr.s
-class HAConfig:
+class HAConfig(BaseModel):
     """
     Group of SensorPoints, to be grouped and, optionally, .
     Common use of this grouping is to differentiate external sensors
     from internal ones.
     """
 
-    host: str = attr.ib(factory=str)
-    token: str = attr.ib(factory=str)
+    # TODO evolve to URL + secret
+    host: str = ""
+    token: str = ""
 
-    altitude: int = attr.ib(default=100)
-    base_pressure: Optional[float] = attr.ib(default=None)
-    pressure_sensor: Optional[str] = attr.ib(default=None)
-    scan_interval: int = attr.ib(default=30)
-    delta_arrows: int = attr.ib(default=3600)
+    altitude: int = 100
+    base_pressure: float | None = None
+    pressure_sensor: str | None = None
+    scan_interval: int = Field(default=30, ge=1, le=3600 * 24 * 7)
+    delta_arrows: int = Field(default=3600, ge=1, le=3600 * 24)
 
 
-@attr.s
-class ChartCustomConfig:
+class ChartCustomConfig(BaseModel):
     """
     Configuration of the psychrochart,
      * with overlay of HA sensors,
      * grouped in interior / exterior zones.
     """
 
-    homeassistant: HAConfig = attr.ib()
-    interior: List[SensorPoint] = attr.ib(factory=list)
-    exterior: List[SensorPoint] = attr.ib(factory=list)
-    interior_style_line: Dict[str, Any] = attr.ib(factory=EXT_ZONE_LINE.copy)
-    interior_style_fill: Dict[str, Any] = attr.ib(factory=EXT_ZONE_FILL.copy)
-    exterior_style_line: Dict[str, Any] = attr.ib(factory=INT_ZONE_LINE.copy)
-    exterior_style_fill: Dict[str, Any] = attr.ib(factory=INT_ZONE_FILL.copy)
+    homeassistant: HAConfig
+    interior: list[SensorPoint] = Field(default_factory=list)
+    exterior: list[SensorPoint] = Field(default_factory=list)
+    interior_style_line: dict[str, Any] = Field(
+        default_factory=EXT_ZONE_LINE.copy
+    )
+    interior_style_fill: dict[str, Any] = Field(
+        default_factory=EXT_ZONE_FILL.copy
+    )
+    exterior_style_line: dict[str, Any] = Field(
+        default_factory=INT_ZONE_LINE.copy
+    )
+    exterior_style_fill: dict[str, Any] = Field(
+        default_factory=INT_ZONE_FILL.copy
+    )
 
     @classmethod
     def from_yaml_file(cls, path_config: Path):
         """Read configuration from a yaml file."""
-        raw_data: dict = safe_load(
-            path_config.read_text(encoding="utf-8")
-        )
+        raw_data: dict = safe_load(path_config.read_text(encoding="utf-8"))
         try:
-            return cattr.structure_attrs_fromdict(raw_data, cls)
+            return cls.model_validate(raw_data)
         except (ValueError, TypeError) as exc:  # pragma: no cover
             logging.error(
                 f"Bad config import from {path_config}: {exc}. "
@@ -77,7 +80,7 @@ class ChartCustomConfig:
             return cls(homeassistant=HAConfig())
 
     @property
-    def ha_sensors(self) -> List[str]:
+    def ha_sensors(self) -> list[str]:
         """List all HomeAssistant entities used in the chart."""
         return [
             entity

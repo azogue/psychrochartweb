@@ -1,53 +1,56 @@
-# -*- coding: utf-8 -*-
+import importlib.metadata
 from pathlib import Path
-from typing import Optional
 
-import attr
-from aiohttp import web
-from envparse import env
+from dotenv import load_dotenv
+from pydantic import Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+load_dotenv()
+
+_API_VERSION = importlib.metadata.version("psychrochartweb")
 
 # path to custom HA configuration
-P_CUSTOM_CONFIG = Path(__file__).parent.parent / "custom"
+_P_DEFAULT_CONF = Path(__file__).parent / "config" / "default_ha.yaml"
+P_CUSTOM_CONFIG = _P_DEFAULT_CONF.parent
 HA_CONFIG = "custom_ha_sensors.yaml"
 
-# app keys
-NAME_KEY = "name"
-CONFIG_KEY = "_config"
-SVG_BYTES = "chart_svg_bytes"
 
+class Settings(BaseSettings):
+    """App settings to configure a physical IBIS-IP-compatible device."""
 
-@attr.s
-class AppConfig:
-    """Configuration of the aiohttp application."""
+    version: str = Field(default=_API_VERSION)
+    app_port: int = Field(default=8081)
+    app_log_level: str = "INFO"
+    app_log_level_components: dict[str, str] = Field(default_factory=dict)
 
-    HOST: str = attr.ib(default=env.str("HOST", default="0.0.0.0"))
-    PORT: int = attr.ib(default=env.int("PORT", default=80))
-    LOGGING_LEVEL: str = attr.ib(
-        default=env.str("LOGGING_LEVEL", default="INFO")
-    )
-
-    SCAN_INTERVAL: Optional[int] = attr.ib(
-        default=env.str("SCAN_INTERVAL", default=None)
-    )
-    HA_CONFIG_NAME: str = attr.ib(
-        default=env.str("HA_CONFIG_NAME", default=HA_CONFIG)
-    )
-    CUSTOM_FOLDER: Path = attr.ib(
-        default=Path(env.str("CUSTOM_FOLDER", default=P_CUSTOM_CONFIG))
-    )
-
-    def __attrs_post_init__(self):
-        if self.SCAN_INTERVAL:
-            self.SCAN_INTERVAL = int(self.SCAN_INTERVAL)
-        else:
-            self.SCAN_INTERVAL = None
+    ha_config_name: str = Field(default=HA_CONFIG)
+    custom_folder: Path = Field(default=P_CUSTOM_CONFIG)
 
     @property
     def ha_config_path(self) -> Path:
         """Return path for HomeAssistant config, under 'custom' folder."""
-        return self.CUSTOM_FOLDER / self.HA_CONFIG_NAME
+        path_config = self.custom_folder / self.ha_config_name
+        p_ha_conf = (
+            path_config
+            if path_config.exists() and path_config.is_file()
+            else _P_DEFAULT_CONF
+        )
+        assert p_ha_conf.exists(), p_ha_conf
+        return p_ha_conf
+
+    # pydantic config to tune Settings
+    model_config = SettingsConfigDict(
+        extra="ignore",
+        arbitrary_types_allowed=False,
+        validate_default=True,
+        case_sensitive=False,
+        env_prefix="",
+        env_file=[Path(".env")],
+        env_file_encoding="utf-8",
+        env_nested_delimiter="__",
+        secrets_dir=None,
+    )
 
 
-def get_config(app: web.Application) -> AppConfig:
-    """Retrieve app configuration dataclass."""
-    return app[CONFIG_KEY]
+if __name__ == "__main__":
+    print(Settings().model_dump_json(indent=2, exclude_defaults=True))

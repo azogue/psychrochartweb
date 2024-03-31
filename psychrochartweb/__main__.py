@@ -1,30 +1,32 @@
-# -*- coding: utf-8 -*-
-if __name__ == "__main__":
-    import logging
-    import sys
+import logging
 
-    import uvloop
-    from aiohttp import web
+from uvicorn import Config, Server
 
-    from .app import create_app
-    from .config import get_config
+from psychrochartweb.app import create_app
+from psychrochartweb.config import Settings
 
-    # Install uvloop
-    uvloop.install()
 
-    # Create application and get its config
-    app = create_app(name="psychrochartweb")
-
-    # Now run the application
-    app_config = get_config(app)
+def main_app() -> None:
+    """Entry point for Uvicorn app."""
+    app_settings = Settings()
     logging.basicConfig(
-        level=app_config.LOGGING_LEVEL,
-        format=(
-            "%(asctime)s.%(msecs)03d %(levelname)s: "
-            "(%(filename)s:%(lineno)s): %(message)s"
-        ),
+        level=app_settings.app_log_level,
+        handlers=[logging.StreamHandler()],
+        format="%(asctime)s.%(msecs)03d %(levelname)s: "
+        "(%(filename)s:%(lineno)s): %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
-    web.run_app(app, host=app_config.HOST, port=app_config.PORT)
+    app = create_app(app_settings)
+    server = Server(
+        Config(
+            app=app,
+            host="0.0.0.0",
+            port=app_settings.app_port,
+            loop="uvloop",
+        ),
+    )
+    server.run()
 
-    sys.exit(0)
+
+if __name__ == "__main__":
+    main_app()

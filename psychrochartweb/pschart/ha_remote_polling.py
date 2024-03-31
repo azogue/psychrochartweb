@@ -1,66 +1,25 @@
 # -*- coding: utf-8 -*-
 """Extract sensor values from a remote Home Assistant instance."""
+
 import logging
 from asyncio import TimeoutError
 from itertools import chain
 from math import ceil, floor
-from pathlib import Path
 from time import monotonic
 from typing import Any, Dict, Optional, Tuple
 
-from aiohttp import ClientSession, web
-from aiohttp.client_exceptions import ClientError, ContentTypeError
-from psychrochart.chart import GetStandardAtmPressure, SetUnitSystem, SI
+import httpx
 from psychrochart.chartdata import (
     gen_points_in_constant_relative_humidity as w_from_dbt_rh,
 )
 
-from psychrochartweb.config import AppConfig
 from psychrochartweb.pschart.chart_config import ChartCustomConfig
 
 _HA_TIMEOUT = 5
-KEY_HA_CONFIG = "_ha_config_"
 
-###############################################################################
 # Base styles and absolute limits for chart
-###############################################################################
 MIN_CHART_TEMPERATURE = 20.0
 MAX_CHART_TEMPERATURE = 27.0
-
-###############################################################################
-# HA Config
-###############################################################################
-_P_DEFAULT_CONF = Path(__file__).parent.parent / "config" / "default_ha.yaml"
-
-
-def get_ha_config(app: web.Application) -> ChartCustomConfig:
-    return app[KEY_HA_CONFIG]
-
-
-def set_ha_config(
-    app: web.Application, app_config: AppConfig
-) -> ChartCustomConfig:
-    # Pressure, SI unit system
-    SetUnitSystem(SI)
-    # Load HA configuration
-    path_config = app_config.ha_config_path
-    p_ha_conf = (
-        path_config
-        if path_config.exists() and path_config.is_file()
-        else _P_DEFAULT_CONF
-    )
-    config = ChartCustomConfig.from_yaml_file(p_ha_conf)
-    if config.homeassistant.base_pressure is None:
-        config.homeassistant.base_pressure = GetStandardAtmPressure(
-            config.homeassistant.altitude
-        )
-
-    if app_config.SCAN_INTERVAL is not None:
-        config.homeassistant.scan_interval = app_config.SCAN_INTERVAL
-
-    # Store config in app
-    app[KEY_HA_CONFIG] = config
-    return config
 
 
 ###############################################################################
@@ -72,15 +31,18 @@ async def _get_states(ha_config: ChartCustomConfig):
         "Content-Type": "application/json",
     }
     url_get_sensors = f"{ha_config.homeassistant.host}/api/states"
-
-    async with ClientSession(headers=headers) as session:
+    async with httpx.AsyncClient(headers=headers) as client:
         try:
-            async with session.get(
-                url_get_sensors, timeout=_HA_TIMEOUT
-            ) as response:
-                response = await response.json()
-                return response
-        except (ClientError, TimeoutError, ContentTypeError) as exc:
+            response = await client.get(url_get_sensors, timeout=_HA_TIMEOUT)
+            # TODO remove this after mocking data
+            # (
+            # (
+            #     Path(__file__).absolute().parents[2]
+            #     / "tests"
+            #     / f"example-ha-states-raw-{str(monotonic())[-5:]}.json"
+            # ).write_bytes(response.content)
+            return response.json()
+        except (httpx.HTTPError, TimeoutError) as exc:
             logging.error(
                 f"Cannot update HA states: {exc.__class__.__name__}:{exc}"
             )

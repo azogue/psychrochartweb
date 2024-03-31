@@ -1,26 +1,17 @@
 # ---- Base Node ----
-FROM python:3.9-slim-buster as base
+FROM python:3.12-slim as base
 
-RUN apt update -qq \
-    && apt upgrade -y \
-    && apt install -y \
-        curl gcc git locales locales-all make nano openssh-client \
-        libatlas3-base liblapack3 libfreetype6-dev \
-        python3-dev pkg-config \
-    && apt autoremove -y
-
-RUN pip3 install virtualenv
-
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | POETRY_HOME=/opt/poetry python \
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y locales build-essential curl libatlas3-base liblapack3 libfreetype6-dev \
+    && curl -sSL https://install.python-poetry.org/ | POETRY_HOME=/opt/poetry python \
     && cd /usr/local/bin \
     && ln -s /opt/poetry/bin/poetry \
-    && poetry config virtualenvs.create false
+    && poetry config virtualenvs.create false \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # set working directory
 WORKDIR /app
-
-# ---- Dependencies ----
-FROM base AS deps
+ENV PYTHONPATH /app
 
 # Setup locales
 RUN locale-gen en_US.UTF-8
@@ -33,16 +24,12 @@ COPY README.md .
 COPY pyproject.toml .
 COPY poetry.lock .
 COPY psychrochartweb psychrochartweb
-
-RUN poetry install --no-dev
-
-# ---- Development dependencies ----
-FROM deps AS dev-deps
+RUN poetry install --only main
 
 # set envs
 ENV HOST 0.0.0.0
-ENV PORT 80
+ENV APP_PORT 8080
 # expose port and define CMD
-EXPOSE ${PORT}
+EXPOSE ${APP_PORT}
 # Default command
-CMD ["poetry", "run", "python", "-m", "psychrochartweb"]
+CMD ["python", "-m", "psychrochartweb"]

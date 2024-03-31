@@ -1,25 +1,19 @@
-version: '3.5'
 services:
   api:
     build:
       context: .
       cache_from:
         - &img_tag psychrochartweb/addon:latest
-    tty: true
     environment:
-      DEBUG_COLORS: "true"
-      TERM: xterm-256color
-      COLORTERM: truecolor
-      SCAN_INTERVAL: ${SCAN_INTERVAL:-45}
+      APP_PORT: 8080
       LOGGING_LEVEL: ${LOGGING_LEVEL:-WARNING}
-      PORT: 80
       HA_CONFIG_NAME: ${HA_CONFIG_NAME:-custom_ha_sensors.yaml}
       CUSTOM_FOLDER: /app/custom
     image: *img_tag
-    command: poetry run python -m psychrochartweb
+    command: python -m psychrochartweb
     restart: "always"
     ports:
-      - 7778:80
+      - 7778:8080
     # share volume for chart & HomeAssistant configuration
     volumes:
       - ./custom:/app/custom

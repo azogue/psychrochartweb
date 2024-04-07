@@ -8,7 +8,11 @@ from time import monotonic
 from typing import Any
 
 import matplotlib.colors as mcolors
-from psychrochart.chart import GetStandardAtmPressure, SetUnitSystem, SI
+from psychrolib import (
+    GetStandardAtmPressure,
+    SetUnitSystem,
+    SI,
+)
 from pydantic import BaseModel, ConfigDict
 
 from psychrochartweb.pschart.ha_remote_polling import get_data_for_new_chart
@@ -83,17 +87,15 @@ class ChartHandler(BaseModel):
 
     @staticmethod
     def _arrow_style(style: dict[str, Any]) -> dict[str, Any]:
-        if "color" in style:
-            color = style["color"]
-            if isinstance(color, str) and mcolors.is_color_like(color):
-                color = list(mcolors.to_rgb(color))
-            else:
-                color = list(color)
-        else:
-            color = [1, 0.8, 0.1]
+        color = style.get("color", [1, 0.8, 0.1])
+        color = (
+            list(mcolors.to_rgb(color))
+            if isinstance(color, str) and mcolors.is_color_like(color)
+            else list(color)
+        )
         if "alpha" in style:
             color += [style["alpha"]]
-        elif len(color) == 3:
+        elif len(color) == 3:  # pragma: no cover
             color += [0.6]
         return {"color": color, "arrowstyle": "wedge"}
 

@@ -25,34 +25,31 @@ async def plot_chart(
     age: float = 0.0,
 ) -> bytes:
     c_conf = load_config("minimal")
-    # c_conf["figure"]["figsize"] = [12, 8]
-    c_conf["figure"]["x_label"] = None
-    c_conf["figure"]["y_label"] = None
-    c_conf["limits"]["pressure_kpa"] = pressure / 1000.0
-    c_conf["limits"]["range_temp_c"] = rg_dbt
-    c_conf["limits"]["range_humidity_g_kg"] = rg_w
-    c_conf["chart_params"]["constant_rh_label"] = None
-    c_conf["chart_params"]["constant_rh_curves"] = [20, 40, 50, 60, 80]
-    c_conf["chart_params"]["with_constant_h"] = False
-    c_conf["chart_params"]["constant_v_label"] = None
-    c_conf["chart_params"]["constant_v_step"] = 0.02
-    c_conf["chart_params"]["constant_temp_label"] = None
-    c_conf["chart_params"]["constant_temp_step"] = 1
-    c_conf["chart_params"]["constant_temp_label_step"] = 2
-    c_conf["chart_params"]["with_constant_humidity"] = True
-    c_conf["chart_params"]["constant_humid_label"] = None
-    c_conf["chart_params"]["constant_humid_step"] = 2.5
-    c_conf["chart_params"]["constant_humid_label_step"] = 2.5
-    c_conf["chart_params"]["constant_wet_temp_label"] = None
+    # c_conf.figure.figsize = [12, 8]
+    c_conf.figure.x_label = None
+    c_conf.figure.y_label = None
+    c_conf.limits.pressure_kpa = pressure / 1000.0
+    c_conf.limits.range_temp_c = rg_dbt
+    c_conf.limits.range_humidity_g_kg = rg_w
+    c_conf.chart_params.constant_rh_label = None
+    c_conf.chart_params.constant_rh_curves = [20, 40, 50, 60, 80]
+    c_conf.chart_params.with_constant_h = False
+    c_conf.chart_params.constant_v_label = None
+    c_conf.chart_params.constant_v_step = 0.02
+    c_conf.chart_params.constant_temp_label = None
+    c_conf.chart_params.constant_temp_step = 1
+    c_conf.chart_params.constant_temp_label_step = 2
+    c_conf.chart_params.with_constant_humidity = True
+    c_conf.chart_params.constant_humid_label = None
+    c_conf.chart_params.constant_humid_step = 2.5
+    c_conf.chart_params.constant_humid_label_step = 2.5
+    c_conf.chart_params.constant_wet_temp_label = None
 
-    c_conf["chart_params"]["range_wet_temp"][0] = max(
-        rg_dbt[0] - 5, c_conf["chart_params"]["range_wet_temp"][0]
-    )
-    c_conf["chart_params"]["range_wet_temp"][1] = rg_dbt[1] - 3
-    # print(c_conf)
+    wet_temp_min = max(rg_dbt[0] - 5, c_conf.chart_params.range_wet_temp[0])
+    c_conf.chart_params.range_wet_temp = (wet_temp_min, rg_dbt[1] - 3)
 
     # Make chart
-    chart: PsychroChart = PsychroChart(c_conf)
+    chart: PsychroChart = PsychroChart.create(c_conf)
 
     # TODO add custom zones from config
     chart.append_zones(
@@ -143,6 +140,5 @@ async def plot_chart(
         fontsize=15,
         color="darkviolet",
     )
-    chart.figure.tight_layout(pad=0)
     bytes_svg_data = await _save_chart_to_svg(chart)
     return bytes_svg_data

@@ -9,17 +9,15 @@ from time import monotonic
 from typing import Any, Dict, Optional, Tuple
 
 import httpx
-from psychrochart.chartdata import (
-    gen_points_in_constant_relative_humidity as w_from_dbt_rh,
-)
+from psychrochart.chartdata import gen_points_in_constant_relative_humidity
 
 from psychrochartweb.pschart.chart_config import ChartCustomConfig
 
 _HA_TIMEOUT = 5
 
 # Base styles and absolute limits for chart
-MIN_CHART_TEMPERATURE = 20.0
-MAX_CHART_TEMPERATURE = 27.0
+_MIN_CHART_TEMPERATURE = 20.0
+_MAX_CHART_TEMPERATURE = 27.0
 
 
 ###############################################################################
@@ -131,18 +129,17 @@ async def get_ha_points_and_zones(ha_config: ChartCustomConfig):
     return _build_chart_points_and_zones(ha_config, ha_sensors_data)
 
 
-def _get_dynamic_limits(points: Dict[str, Any], pressure: float = 101325.0):
-    # TODO review estimation of limits
+def _get_dynamic_limits(points: dict[str, Any], pressure: float = 101325.0):
     pairs_t_rh = [point["xy"] for point in points.values()]
-    values_w = [w_from_dbt_rh([p[0]], [p[1]], pressure) for p in pairs_t_rh]
     values_t = [p[0] for p in pairs_t_rh]
+    values_w = gen_points_in_constant_relative_humidity(
+        values_t, [p[1] for p in pairs_t_rh], pressure
+    )
 
-    min_temp = min(floor((min(values_t) - 1) / 3) * 3, MIN_CHART_TEMPERATURE)
-    max_temp = max(ceil((max(values_t) + 1) / 3) * 3, MAX_CHART_TEMPERATURE)
-
+    min_temp = min(floor((min(values_t) - 1) / 3) * 3, _MIN_CHART_TEMPERATURE)
+    max_temp = max(ceil((max(values_t) + 1) / 3) * 3, _MAX_CHART_TEMPERATURE)
     w_min = min(floor((min(values_w) - 1) / 3) * 3, 5.0)
     w_max = ceil(max(values_w)) + 2
-
     return min_temp, max_temp, w_min, w_max
 
 

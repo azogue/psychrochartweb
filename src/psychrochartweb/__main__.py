@@ -1,4 +1,5 @@
 import logging
+from contextlib import suppress
 
 from uvicorn import Config, Server
 
@@ -25,7 +26,8 @@ def main_app() -> None:
             loop="uvloop",
         ),
     )
-    server.run()
+    with suppress(KeyboardInterrupt):
+        server.run()
 
 
 if __name__ == "__main__":

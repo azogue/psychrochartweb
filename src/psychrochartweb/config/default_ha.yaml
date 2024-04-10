@@ -1,36 +1,52 @@
 homeassistant:
-  token: "***YOUR_HA_LONG_LIVE_TOKEN_TOKEN_HERE****"
-  host: "http://192.168.1.2:8123"
-  scan_interval: 30
-  # altitude: 100
-  pressure_sensor: sensor.pressure
-  delta_arrows: 3600
+  # point to your HA
+  host: http://ha-host-ip:8123
+  token: LONG_LIVED_ACCESS_TOKEN
 
-interior:
-  - name: RoomName
-    temperature: sensor.temperature
-    humidity: sensor.humidity
-    style:
-      color: "#FD9D64"
-      alpha: 0.9
-      markersize: 8
+  # set constant altitude (in meters), OR point to some HA pressure sensor (in hPa / mbar)
+  altitude: 100
+  # pressure_sensor: sensor.exterior_pressure
+
+  # define temporal parameters
+  delta_arrows: 10800 # plot arrows for each point, showing evolution of last 3h (3600s * 3 = 10800)
+  scan_interval: 60 # desired update frequency for psychrochart regeneration
+
+# list of sensor pairs (T_dry / RH) corresponding to measurements INSIDE home
+# interior:
+# - name: Bedroom
+#   humidity: sensor.bedroom_humidity
+#   temperature: sensor.bedroom_temperature
+#   style:
+#     alpha: 0.9
+#     color: '#51E81F'
+#     markersize: 10
+
+# list of sensor pairs (T_dry / RH) corresponding to measurements OUTSIDE home
 # exterior:
+# - name: Forecast
+#   temperature: sensor.dark_sky_temperature
+#   humidity: sensor.dark_sky_humidity
+#   style:
+#     alpha: 0.6
+#     color: '#7996BB'
+#     markersize: 7
 
+# customize matplotlib styling for interior / exterior zones
 interior_style_line:
   color: darkgreen
   lw: 2
   alpha: 0.5
   ls: ":"
 interior_style_fill:
-  color: darkgreen
+  color: green
   lw: 0
   alpha: 0.3
 exterior_style_line:
-  color: darkblue
+  color: "#E37207"
   lw: 1
   alpha: 0.5
   ls: "--"
 exterior_style_fill:
-  color: darkblue
+  color: "#E37207"
   lw: 0
-  alpha: 0.3
+  alpha: 0.2

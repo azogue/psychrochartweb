@@ -42,8 +42,8 @@ async def test_get_empty_chart(client: AsyncClient):
     assert response.status_code == 200
     chart_config = ChartCustomConfig.model_validate_json(response.content)
     assert not chart_config.exterior
-    assert len(chart_config.interior) == 1
-    assert len(chart_config.ha_sensors) == 2
+    assert not chart_config.interior
+    assert not chart_config.ha_sensors
     assert chart_config.interior_style_line
     assert chart_config.interior_style_fill
     assert chart_config.exterior_style_line

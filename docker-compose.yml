@@ -7,7 +7,7 @@ services:
     environment:
       APP_PORT: 8080
       LOGGING_LEVEL: ${LOGGING_LEVEL:-WARNING}
-      HA_CONFIG_NAME: ${HA_CONFIG_NAME:-custom_ha_sensors.yaml}
+      HA_CONFIG_NAME: ${HA_CONFIG_NAME:-my_ha_sensors.yaml}
       CUSTOM_FOLDER: /app/custom
     image: *img_tag
     command: psychrocam

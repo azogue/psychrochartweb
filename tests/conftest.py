@@ -64,5 +64,5 @@ async def local_client(httpx_mock: HTTPXMock):
 
 
 @pytest.fixture
-def non_mocked_hosts() -> list:
+def non_mocked_hosts() -> list[str]:
     return ["test-local-server", "test-server"]

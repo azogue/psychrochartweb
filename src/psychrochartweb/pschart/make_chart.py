@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from io import BytesIO
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from psychrochart import load_config, PsychroChart
 
@@ -16,12 +16,12 @@ async def _save_chart_to_svg(chart: PsychroChart) -> bytes:
 
 
 async def plot_chart(
-    rg_dbt: Tuple[float, float],
-    rg_w: Tuple[float, float],
+    rg_dbt: tuple[float, float],
+    rg_w: tuple[float, float],
     pressure: float,
-    points: Optional[Dict[str, Any]] = None,
-    zones: Optional[List[Any]] = None,
-    arrows: Optional[Dict[str, Any]] = None,
+    points: dict[str, Any] | None = None,
+    zones: list[Any] | None = None,
+    arrows: dict[str, Any] | None = None,
     age: float = 0.0,
 ) -> bytes:
     c_conf = load_config("minimal")

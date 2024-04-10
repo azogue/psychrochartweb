@@ -68,7 +68,7 @@ class ChartCustomConfig(BaseModel):
     @classmethod
     def from_yaml_file(cls, path_config: Path):
         """Read configuration from a yaml file."""
-        raw_data: dict = safe_load(path_config.read_text(encoding="utf-8"))
+        raw_data = safe_load(path_config.read_text(encoding="utf-8"))
         return cls.model_validate(raw_data)
 
     @property

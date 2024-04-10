@@ -28,7 +28,7 @@ class ChartHandler(BaseModel):
     ha_history: deque[tuple[float, dict[str, Any]]]
     current_svg_chart: bytes | None = None
 
-    _task_ha_polling: asyncio.Task | None = None
+    _task_ha_polling: asyncio.Task[None] | None = None
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 

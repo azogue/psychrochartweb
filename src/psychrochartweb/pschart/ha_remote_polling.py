@@ -6,7 +6,7 @@ from asyncio import TimeoutError
 from itertools import chain
 from math import ceil, floor
 from time import monotonic
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 import httpx
 from psychrochart.chartdata import gen_points_in_constant_relative_humidity
@@ -44,9 +44,9 @@ async def _get_states(ha_config: ChartCustomConfig):
 # Chart data overlay
 ###############################################################################
 def _build_chart_points_and_zones(
-    config: ChartCustomConfig, sensor_states: Dict[str, Any]
-) -> Tuple[dict, list, float]:
-    def _extract_state(states: Dict[str, Any], key: str) -> Optional[float]:
+    config: ChartCustomConfig, sensor_states: dict[str, Any]
+) -> tuple[dict[str, Any], list[Any], float]:
+    def _extract_state(states: dict[str, Any], key: str) -> float | None:
         try:
             state = states[key]
         except KeyError:  # pragma: no cover

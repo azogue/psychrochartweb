@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  pull_request:
+
+jobs:
+  tests:
+    name: Run tests with pytest & coverage
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Set up uv
+        uses: yezz123/setup-uv@v4
+        with:
+          uv-venv: ".venv"
+
+      - name: Install library
+        run: uv pip install -r pyproject.toml --all-extras -e .
+
+      - name: Run tests
+        run: pytest --cov-report xml:coverage.xml
+
+      - name: Get coverage
+        uses: orgoro/coverage@v3.1
+        with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -11,6 +11,8 @@
 [build-image]: https://github.com/azogue/psychrochartweb/actions/workflows/main.yml/badge.svg
 [build-url]: https://github.com/users/azogue/packages/container/package/psychrochartweb
 
+[TOC]
+
 # psychrochart-web
 
 Web app to serve a customized [psychrochart](https://github.com/azogue/psychrochart) SVG for [HomeAssistant](https://www.home-assistant.io),
@@ -122,18 +124,21 @@ exterior_style_fill:
 
 ## Install
 
-1. Clone this repo with `git clone https://github.com/azogue/psychrochartweb.git`, and create your own configuration file from a template:
+1. Fill your own config based on the YAML above, or [this file](./src/psychrochartweb/config/default_ha.yaml)
+2. Pull the latest image: `docker pull ghcr.io/azogue/psychrochartweb:main`
+3. Run the container as daemon, mounting the folder with your config:
 
    ```shell
-   cd psychrochartweb
-   mkdir custom
-   cp src/psychrochartweb/config/default_ha.yaml custom/my_ha_sensors.yaml
-
-   # fill this file with your HA host + token, and your own HA entities
-   nano custom/my_ha_sensors.yaml
+   docker run \
+       --env HA_CONFIG_NAME=my_ha_sensors.yaml \
+       --env CUSTOM_FOLDER=/app/custom \
+       --env LOGGING_LEVEL=INFO \
+       -v "`(pwd)`/custom:/app/custom" \
+       -p "7775:8080/tcp" --rm --name psychrocam \
+       --daemon ghcr.io/azogue/psychrochartweb:main
    ```
 
-2. Build and run the docker container with your config: **`docker compose up -d`**. That should serve the webapp in http://localhost:7778/docs, making available the psychrochart as SVG at http://localhost:7778/chart.svg
+   That should serve the webapp in http://localhost:7778/docs, making available the psychrochart as SVG at http://localhost:7778/chart.svg
 
 ## Post-install: Camera in HomeAssistant
 
@@ -158,4 +163,16 @@ pre-commit install-hooks
 pre-commit run --all-files
 pytest
 psychrocam
+```
+
+To edit your own configuration and build the docker image:
+
+```shell
+mkdir custom
+cp src/psychrochartweb/config/default_ha.yaml custom/my_ha_sensors.yaml
+# fill this file with your HA host + token, and your own HA entities
+nano custom/my_ha_sensors.yaml
+
+# build the docker image and run with compose
+docker compose up -d
 ```

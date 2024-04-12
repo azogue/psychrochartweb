@@ -134,8 +134,8 @@ exterior_style_fill:
        --env CUSTOM_FOLDER=/app/custom \
        --env LOGGING_LEVEL=INFO \
        -v "`(pwd)`/custom:/app/custom" \
-       -p "7775:8080/tcp" --rm --name psychrocam \
-       --daemon ghcr.io/azogue/psychrochartweb:main
+       -p "7778:8080/tcp" --rm --name psychrocam \
+       -d ghcr.io/azogue/psychrochartweb:main
    ```
 
    That should serve the webapp in http://localhost:7778/docs, making available the psychrochart as SVG at http://localhost:7778/chart.svg

@@ -51,7 +51,7 @@ class ChartHandler(BaseModel):
         handler = cls(
             settings=settings,
             ha_config=config,
-            ha_history=deque([], num_samples),
+            ha_history=deque(maxlen=num_samples),
         )
         handler._task_ha_polling = None
         return handler
